@@ -1,0 +1,2072 @@
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../Fonts/Proxima Font/Proxima Nova.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Proxima Nova Bold';
+    src: url('../Fonts/Proxima Font/Proxima Font/Proxima Nova Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Proxima Nova Semibold';
+    src: url('../Fonts/Proxima Font/Proxima Font/Proxima Nova Semibold.otf') format('opentype');
+}
+
+#EditContainer {
+    /*position: fixed;
+    top: 83px; 
+    left: 0;
+    right: 0;
+    bottom: 0;*/
+}
+
+#caseDetailHeader {
+    /*position: fixed;
+    top: 140px;
+    left: 0;
+    right: 0;
+    bottom: 0;*/
+}
+
+.vertical-aligned-div-40h {
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    line-height: 40px;
+}
+
+#tabsHeader {
+    /*position: fixed;
+    top: 300px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+        */
+}
+
+#BG {
+    position: fixed;
+    top:382px; /*149*/
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F9F9F9;
+    overflow: auto;
+}
+
+#Card {
+    max-width: 1858px;
+    margin: auto;
+    width: 60%;
+}
+
+#header {
+    padding-left: 5px;
+    border-radius: 16px 16px 0 0;
+    background: #0077E6 0% 0% no-repeat padding-box;
+    font: ProximaNova-Bold;
+    font-size: 26px;
+    color: white;
+    height: 59px;
+}
+
+.button {
+    background-color: #0077E6;
+    border: 2px solid #0077E6;
+    color: white;
+    border-radius: 8px;
+    font-family: Proxima Nova;
+    font-size: 18px;
+}
+
+    .button:hover {
+        background-color: white;
+        color: #0077E6;
+    }
+
+
+
+.tablinks {
+    margin-right: 20px;
+}
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    /*background-color: inherit;*/
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 20px 20px 0px 0px;
+    text-align: left;
+    font: normal normal 600 20px/24px;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0px;
+    color: #809FB8;
+    background: #D9E1E7CC 0% 0% no-repeat padding-box;
+}
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background: #0077E6 0% 0% no-repeat padding-box;
+        color: white;
+    }
+
+input[type=text] {
+    width: 100%;
+    display: inline-block;
+    border: none;
+    box-sizing: border-box;
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #000000;
+    outline: 0;
+}
+
+input:focus {
+    border: none;
+}
+
+form {
+    margin: 50px;
+}
+
+.legalCaseNameArea {
+    grid-area: legalCaseNameArea;
+}
+
+.defendantCompanyArea {
+    grid-area: defendantCompanyArea;
+}
+
+.countryArea {
+    grid-area: countryArea;
+}
+
+.pressReleaseDateArea {
+    grid-area: pressReleaseDateArea;
+}
+
+.lpDeadLineArea {
+    grid-area: lpDeadLineArea;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'legalCaseNameArea legalCaseNameArea legalCaseNameArea'
+        'defendantCompanyArea defendantCompanyArea defendantCompanyArea'
+        'countryArea pressReleaseDateArea lpDeadLineArea';
+    gap: 50px;
+    padding: 10px;
+}
+
+.complaintInput1 {
+    grid-area: complaintInput1;
+}
+
+.complaintInput2 {
+    grid-area: complaintInput2;
+}
+
+.complaintInput3 {
+    grid-area: complaintInput3;
+}
+
+.complaintInput4 {
+    grid-area: complaintInput4;
+}
+
+.complaintInput5 {
+    grid-area: complaintInput5;
+}
+
+.complaintInput6 {
+    grid-area: complaintInput6;
+}
+
+.complaintInput7 {
+    grid-area: complaintInput7;
+}
+
+.complaintInput8 {
+    grid-area: complaintInput8;
+}
+
+.complaintInput9 {
+    grid-area: complaintInput9;
+}
+
+.complaintInput10 {
+    grid-area: complaintInput10;
+}
+
+.complaintInput11 {
+    grid-area: complaintInput11;
+}
+
+.complaintInput12 {
+    grid-area: complaintInput12;
+}
+
+.complaintInput13 {
+    grid-area: complaintInput13;
+}
+
+.complaintInput14 {
+    grid-area: complaintInput14;
+}
+
+.complaintInput15 {
+    grid-area: complaintInput15;
+}
+
+.complaintInput16 {
+    grid-area: complaintInput16;
+}
+
+.grid-complaint-form {
+    display: grid;
+    grid-template-areas:
+        'complaintInput1 complaintInput2 complaintInput3 complaintInput3'
+        'complaintInput4 complaintInput4 complaintInput5 complaintInput5'
+        'complaintInput6 complaintInput6 complaintInput7 complaintInput8'
+        'complaintInput9 complaintInput9 complaintInput10 complaintInput10'
+        'complaintInput11 complaintInput12 none none'
+        'complaintInput13 complaintInput14 complaintInput15 complaintInput16';
+    gap: 30px;
+    padding: 10px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Probably need media queries here */
+
+    max-width: 100%;
+    max-height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+
+
+.modal-header {
+    padding: 16px 16px 16px 16px;
+    border: none;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: #949AA4;
+    mix-blend-mode: multiply;
+    display: none;
+}
+
+
+.close {
+    color: #aaaaaa;
+    float: right !important;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+#caseDetailEditModeContainer .k-input {
+    width: 100% !important;
+    padding: 0;
+}
+
+#caseDetailEditModeContainer .k-input-inner {
+    width: calc(100% - 35px) !important;
+    padding: 0 !important;
+    color: #0077E6 !important;
+    font: normal normal normal 18px/24px Proxima Nova;
+}
+
+.k-input-solid:focus-within {
+    border-color: none;
+    color: #495057;
+    background-color: #fff;
+    box-shadow: none;
+}
+
+#caseDetailContent {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    /*border-top: 5px solid #0077E6 !important;*/
+    border: 1px solid #D9E1E7;
+    border-radius: 0px 0px 15px 15px;
+    margin-left: 145px;
+    margin-right: 145px;
+    min-width: 370px;
+    padding: 25px;
+    text-align: right;
+    font-size: 14px;
+    opacity: 1;
+}
+
+.edit-button {
+    /* Layout Properties */
+    top: 108px;
+    left: 1667px;
+    width: 100px;
+    height: 38px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #0077E6;
+    border-radius: 10px;
+    opacity: 1;
+    font: normal normal 600 14px/37px Proxima Nova;
+    color: #0077E6;
+}
+
+.save-button {
+    /* Layout Properties */
+    top: 108px;
+    left: 1667px;
+    width: 100px;
+    height: 38px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #0077E6;
+    border-radius: 10px;
+    opacity: 1;
+    font: normal normal 600 14px/37px Proxima Nova;
+    color: #0077E6;
+}
+
+.tab {
+    overflow: hidden;
+    /*        border: 1px solid #ccc;
+        background-color: #f1f1f1;*/
+    padding-left: 50px;
+    border-bottom: 3px solid #D9E1E7;
+}
+
+.content {
+    border: 1px solid #D9E1E7CC;
+    background-color: white;
+    padding: 1rem;
+}
+
+.contentSecurityEdit {
+    border: 1px solid #D9E1E7CC;
+    background-color: white;
+    padding: 1rem;
+    margin-left: 145px;
+    margin-right: 145px;
+    min-width: 370px;
+    margin-top:20px;
+}
+
+.tabcontent {
+    display: none;
+    border-top: none;
+}
+
+.infobar {
+    max-width: 1650px;
+    height: 100px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+    padding-top: 5px;
+    padding-right: 75px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    font-size: 14px;
+}
+
+
+#grid .k-grid-toolbar {
+    padding: .2em .6em .2em .6em;
+}
+
+#gridSecuritiesEdit .k-grid-toolbar {
+    padding: .2em .6em .2em .6em;
+}
+
+#gridPressRelease .k-grid-toolbar {
+    padding: .2em .6em .2em .6em;
+}
+
+#kendoGridSecuritiesDrop .k-grid-toolbar {
+    padding: .2em .6em .2em .6em;
+}
+
+#SecuritiesDropEditGrid .k-grid-toolbar {
+    padding: .2em 1.2em .2em 0.6em;
+}
+
+.k-grid .toolbar {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.k-link, .k-nav-current.k-state-hover .k-link {
+    color: #0077E6;
+}
+
+#grid .k-grid-header .k-header {
+    font: normal normal 600 18px/18px Proxima Nova;
+    letter-spacing: 0px;
+    color: #0077E6;
+    opacity: 1;
+    border: none;
+    background-color: white;
+    text-align: left;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+#securitiesGridEditMode .k-grid-header .k-header {
+    color: #0077E6;
+    font-weight: bold;
+    font-family: "Proxima Nova";
+    border: none;
+    background-color: white;
+    text-align: center;
+    padding-right: 25px;
+}
+
+#pressReleaseGridEdit .k-grid-header .k-header {
+    color: #0077E6;
+    font-weight: bold;
+    font-family: "Proxima Nova";
+    border: none;
+    background-color: white;
+    text-align: center;
+    padding-right: 25px;
+}
+
+#kendoGridSecuritiesDrop .k-grid-header .k-header {
+    color: #0077E6;
+    border: none;
+    background-color: white;
+    font: normal normal 600 18px/14px Proxima Nova;
+    letter-spacing: 0px;
+    opacity: 1;
+    padding-left: 40px;
+}
+
+#kendoGridSecuritiesDrop .k-column-title {
+    cursor: pointer !important;
+}
+
+#SecuritiesDropEditGrid .k-grid-header .k-header {
+    color: #0077E6;
+    border: none;
+    background-color: white;
+    font: normal normal 600 18px/14px Proxima Nova;
+    letter-spacing: 0px;
+    opacity: 1;
+    padding-left: 40px;
+}
+
+#SecuritiesDropEditGrid .k-column-title {
+    cursor: pointer !important;
+}
+
+.headers {
+    color: #0077E6;
+    font-weight: bold;
+    font-family: "adobe-clean", sans-serif;
+}
+
+.k-grid .k-grid-search {
+    display: flex;
+    margin-left: 30px;
+    border: 2px solid #D9E1E7;
+    margin-right: 0;
+    border-radius: 10px;
+    padding-left: 6px;
+    background: white;
+    font-size: 14px;
+    color: #809FB8 !important;
+    width: 300px;
+}
+
+#grid .k-grid-content {
+    border: 1px solid #dee2e6;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 3px 6px #00000029;
+    font: normal normal normal 18px/50px Proxima Nova;
+    letter-spacing: 0.29px;
+    color: #06152C;
+    opacity: 1;
+    min-height: unset;
+    height: unset !important;
+}
+
+#grid .k-block, .k-content, .k-dropdown .k-input, .k-popup, .k-toolbar, .k-widget {
+    color: black;
+    background-color: white;
+    border-color: white;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+#gridSecuritiesEdit .k-grid-content {
+    border: 1px solid #dee2e6;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 3px 6px #00000029;
+    font-family: "Proxima Nova";
+    min-height: unset;
+    height: unset !important;
+}
+
+#gridSecuritiesEdit .k-block, .k-content, .k-dropdown .k-input, .k-popup, .k-toolbar, .k-widget {
+    color: black;
+    background-color: white;
+    border-color: white;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+#gridPressRelease .k-grid-content {
+    border: 1px solid #dee2e6;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 3px 6px #00000029;
+    font-family: "Proxima Nova";
+    min-height: unset;
+    height: unset !important;
+}
+
+#pressReleaseGridEdit .k-grid-content {
+    max-height: 480px;
+}
+
+#gridPressRelease .k-block, .k-content, .k-dropdown .k-input, .k-popup, .k-toolbar, .k-widget {
+    color: black;
+    background-color: white;
+    border-color: white;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+
+#kendoGridSecuritiesDrop .k-grid-content {
+    border: 1px solid #dee2e6;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 3px 6px #00000029;
+    font-family: "Proxima Nova";
+    max-height: 320px !important;
+    height: unset !important;
+}
+
+#kendoGridSecuritiesDrop .k-block, .k-content, .k-dropdown .k-input, .k-popup, .k-toolbar, .k-widget {
+    color: black;
+    background-color: white;
+    border-color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#SecuritiesDropEditGrid .k-grid-content {
+    border: 1px solid #dee2e6;
+    border-radius: 0px 0px 20px 20px;
+/*    box-shadow: 0px 3px 6px #00000029;*/
+    font-family: "Proxima Nova";
+    max-height: 320px !important;
+    height: unset !important;
+}
+
+#SecuritiesDropEditGrid .k-block, .k-content, .k-dropdown .k-input, .k-popup, .k-toolbar, .k-widget {
+    color: black;
+    background-color: white;
+    border-color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.k-grid-content {
+    border: 1px solid #dee2e6;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.k-grid td {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background-color: white;
+    border: none;
+}
+
+.k-tooltip {
+    box-shadow: #D9E1E7CC 2px 2px !important;
+    color: #18263B !important;
+    background: #F1F4FA !important;
+    border-radius: 10px 10px 10px 10px;
+    font-family: 'Proxima Nova';
+}
+
+
+.k-grid-header {
+    padding-right: 0 !important;
+    background: white !important;
+    border-top: 1px solid #f8f9fa;
+    border-radius: 20px;
+    border-bottom: hidden !important;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #D3D9DE;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #384455;
+}
+
+.k-icon .k-i-plus {
+    color: #0077E6;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.colored-add-case-icon {
+    color: #0077E6;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 12px;
+    padding-top: 2px;
+    font-family: "adobe-clean", sans-serif;
+}
+
+.colored-add-case {
+    color: #0077E6;
+    font-size: 14px;
+    width: 90px;
+    height: 22px;
+    padding-top: 3px;
+}
+
+.headerRow3 {
+    font: 600 14px/30px Proxima Nova;
+    padding-right: 30px;
+}
+
+#defendantCompany {
+    text-align: left;
+    font: normal normal bold 32px/39px Proxima Nova;
+    letter-spacing: 0px;
+    color: #06152C;
+    opacity: 1;
+}
+
+
+#defendantCompanyPN {
+    text-align: left;
+    font: normal normal 600 28px/34px Proxima Nova;
+    letter-spacing: 0px;
+    color: #06152C;
+    opacity: 1;
+}
+
+#ticker {
+    text-align: left;
+    font: normal normal bold 18px/30px Proxima Nova;
+    letter-spacing: 0px;
+    color: #06152C;
+    opacity: 1;
+}
+
+#exchange {
+    text-align: left;
+    font: normal normal bold 18px/30px Proxima Nova;
+    letter-spacing: 0px;
+    color: #06152C;
+    opacity: 1;
+}
+
+#tickerPrice {
+    text-align: left;
+    font: normal normal bold 18px/30px Proxima Nova;
+    letter-spacing: 0px;
+    color: #06152C;
+    opacity: 1;
+}
+
+
+#tickerChange {
+    text-align: left;
+    font: normal normal bold 18px/30px Proxima Nova;
+    letter-spacing: 0px;
+    color: #1BD598;
+    opacity: 1;
+}
+
+#tickerChangePercentage {
+    text-align: left;
+    font: normal normal bold 18px/30px Proxima Nova;
+    letter-spacing: 0px;
+    color: #1BD598;
+    opacity: 1;
+}
+
+#caseDetailsTab {
+    width: 181px;
+    height: 65px;
+    font: normal normal 600 20px/38px Proxima Nova;
+    text-align: center;
+}
+
+#classDamageTab {
+    width: 213px;
+    height: 65px;
+    font: normal normal 600 20px/38px Proxima Nova;
+    text-align: center;
+}
+
+#procedingsTab {
+    width: 184px;
+    height: 65px;
+    font: normal normal 600 20px/38px Proxima Nova;
+    text-align: center;
+}
+
+#filingFirmsTab {
+    width: 185px;
+    height: 65px;
+    font: normal normal 600 20px/38px Proxima Nova;
+    text-align: center;
+}
+
+#counselInfoTab {
+    width: 183px;
+    height: 65px;
+    font: normal normal 600 20px/38px Proxima Nova;
+    text-align: center;
+}
+
+#settlementInfoTab {
+    width: 215px;
+    height: 65px;
+    font: normal normal 600 20px/38px Proxima Nova;
+    text-align: center;
+}
+
+#caseOverviewTab {
+    width: 199px;
+    height: 65px;
+    font: normal normal 600 20px/38px Proxima Nova;
+    text-align: center;
+}
+
+.header2Row1 {
+    font: normal normal bold 18px/24px Proxima Nova;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.header2Row2 {
+    font: normal normal 600 18px/24px Proxima Nova;
+    text-align: left;
+}
+
+#body1CaseDetail {
+    border: solid 1px #D9E1E7CC;
+    border-radius: 15px;
+/*    margin: 10px;*/
+}
+
+#lossesTitleCaseDetail {
+    text-align: left;
+    font: normal normal 600 16px/52px Proxima Nova;
+    letter-spacing: 1.6px;
+    color: #809FB8;
+    padding: 0px 10px;
+}
+
+#lossesQtyCaseDetail {
+    /*font: normal normal bold 30px Proxima Nova;*/
+    letter-spacing: 0.54px;
+    float: left;
+    padding: 0px 10px;
+    height: 100%;
+}
+
+#lossesQtyCaseDetailEdit {
+    /*font: normal normal bold 30px Proxima Nova;*/
+    letter-spacing: 0.54px;
+    float: left;
+    padding: 0px 10px;
+    height: 100%;
+}
+
+#detailBodyTable {
+    height: 100%;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 25px;
+}
+
+#tdDetailBody {
+    text-align: left !important;
+}
+
+#titleCardDetail {
+    font: normal normal 600 14px/24px Proxima Nova;
+    text-align: left;
+    letter-spacing: 1.4px;
+    color: #809FB8;
+}
+
+.infoCardDetail {
+    text-align: left;
+    font: normal normal 600 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #000000;
+}
+
+#infoCardLegalCaseName {
+    text-align: left;
+    font: normal normal 600 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#infoCardDocket {
+    text-align: left;
+    font: normal normal 600 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#classDefinitionSumary {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #D9E1E7CC;
+    border-radius: 16px 16px 16px 16px;
+    padding: 25px;
+    margin-top: 20px;
+    margin-left: 145px;
+    margin-right: 145px;
+    margin-bottom: 20px;
+    min-width: 370px;
+}
+
+#titleClassDefinitionSumary {
+    font: normal normal bold 22px/32px Proxima Nova;
+    text-align: left;
+    padding-bottom: 20px;
+    color: #06152B;
+    opacity: 1;
+}
+
+#infoClassDefinitionSumary {
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #384455;
+    opacity: 1;
+    padding-bottom: 20px;
+}
+
+#pressReleaseContainer {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #D9E1E7CC;
+    border-radius: 16px 16px 16px 16px;
+    padding: 25px;
+    margin-top: 20px;
+    margin-left: 145px;
+    margin-right: 145px;
+    margin-bottom: 20px;
+    min-width: 370px;
+}
+
+#titlePressRelease {
+    font: normal normal bold 22px/36px Proxima Nova;
+    text-align: left;
+    color: #06152C;
+    opacity: 1;
+}
+
+#securityPopUpTitleEdit {
+    font: normal normal bold 21px/36px Proxima Nova;
+    text-align: left;
+    color: #06152C;
+    opacity: 1;
+}
+
+#defendantPressRelease {
+    font: normal normal bold 32px/39px Proxima Nova;
+    text-align: left;
+    color: #06152C;
+    opacity: 1;
+}
+
+#tickerPressRelease {
+    font: normal normal bold 18px/40px Proxima Nova;
+    text-align: left;
+    color: #06152C;
+    opacity: 1;
+}
+
+#pressReleaseGridContainer {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+/*    box-shadow: 0px 3px 6px #00000029;*/
+    border-radius: 20px;
+    opacity: 1;
+}
+
+#gridSecurities {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #D9E1E7CC;
+    border-radius: 20px;
+    opacity: 1;
+    padding: 20px;
+    margin-left: 145px;
+    margin-right: 145px;
+    min-width: 370px;
+    margin-top: 20px;
+}
+
+#titleSecuritiesGrid {
+    color: #06152B;
+    font-family: Proxima Nova;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #D9E1E7CC;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 2px solid #819FB9;
+}
+
+    .slider:before {
+        position: absolute;
+        cursor: pointer;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 4px;
+        bottom: 1px;
+        background-color: #819FB9;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+    border: 2px solid #2196F4;
+}
+
+input:checked + .slider:before {
+    background-color: white;
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+
+}
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+.k-wizard-step {
+    visibility: hidden;
+    content-visibility: hidden;
+}
+
+.k-wizard-horizontal .k-wizard-steps {
+    margin-top: 0rem;
+    content-visibility: hidden;
+}
+
+.k-wizard {
+    padding: 0px;
+}
+
+
+.container-fluid {
+    width: unset;
+}
+
+#tabsContainer {
+    padding-right: 145px;
+    padding-left: 145px;
+    background-color: white;
+    box-shadow: 0px 6px 3px #00000029;
+    border-bottom: 0px solid #D9E1E7CC;
+    border-radius: 6px;
+    /*   margin-top: 20px;*/
+}
+
+#tabs {
+    justify-content: space-around;
+    border-bottom: unset;
+}
+
+
+.nav-tabs .nav-item .nav-link {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 20px 20px 0px 0px;
+    color: #809FB8;
+    background: white 0% 0% no-repeat padding-box;
+    margin-bottom: 0px;
+}
+
+    .nav-tabs .nav-item .nav-link:hover {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        border-radius: 20px 20px 0px 0px;
+        color: #809FB8;
+        background: #D9E1E7 0% 0% no-repeat padding-box;
+        margin-bottom: 0px;
+    }
+
+    .nav-tabs .nav-item .nav-link.active {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        border-radius: 20px 20px 0px 0px;
+        color: #FFFFFF;
+        background: #0077E6 0% 0% no-repeat padding-box;
+        margin-bottom: 0px;
+    }
+
+.k-step-indicator-text {
+    visibility: hidden;
+}
+
+.k-stepper .k-step-label .k-step-text {
+    content-visibility: hidden;
+}
+
+.k-stepper .k-step-indicator {
+    width: 10.76px;
+    height: 10.76px;
+}
+
+
+.k-stepper .k-step-done .k-step-indicator {
+    border-color: #819FB9;
+    color: #fff;
+    background-color: #819FB9;
+    width: 11px;
+    height: 11px;
+}
+
+.greenSteppedWizzard {
+    border-color: red;
+    color: #fff;
+    background-color: red;
+}
+
+.k-stepper .k-step-current .k-step-indicator {
+    border: 6px solid #0d6efd;
+    color: #fff;
+    background-color: white;
+    margin-top: 1px;
+}
+
+#hlStepper {
+    margin-top: -20px;
+    height: 5px;
+    color: #b2b9be;
+}
+
+.k-step-list-horizontal ~ .k-progressbar {
+    margin-top: -10px;
+    background: #b2b9be;
+}
+
+.countStepper {
+    font: normal normal 600 16px/0px Proxima Nova;
+    letter-spacing: 0px;
+    color: #819FB9;
+    opacity: 1;
+}
+
+#descStepper {
+    text-align: left;
+    font: normal normal 600 18px/36px Proxima Nova;
+    letter-spacing: 0px;
+    color: #0077E6;
+    padding-left: 5px;
+    opacity: 1;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #1BD598;
+    border: solid 2px #1BD598;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.caseID {
+    text-align: left;
+    font: normal normal 600 20px/24px Proxima Nova;
+    letter-spacing: 2px;
+    color: #809FB8;
+    opacity: 1;
+}
+
+#popUpSecuritiesModal {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 30%;
+    top: 50%;
+    transform: translate(-22%, -50%);
+    background: white;
+    /*box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);*/
+    border-radius: 20px;
+}
+
+#popUpSecuritiesModalEdit {
+    display: none;
+    max-width: 80%;
+    max-height: 80%;
+    position: fixed;
+    z-index: 100;
+    left: 30%;
+    top: 50%;
+    transform: translate(-22%, -50%);
+    background: white;
+    /*box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);*/
+    border-radius: 20px;
+}
+/* Modal Content */
+.modal-content {
+    padding-left: 16px;
+    padding-right: 16px;
+    border: none;
+    height: 100%;
+}
+
+#securityPopUpTitle {
+    text-align: left;
+    font: normal normal bold 22px/38px Proxima Nova;
+}
+
+#securityPopUpDetail {
+    border: 1px solid #D9E1E7;
+    border-radius: 16px;
+    margin: 0px 16px 0px 16px;
+    padding: 15px 20px;
+}
+
+#securityPopUpDetailEdit {
+    border: 1px solid #D9E1E7;
+    border-radius: 16px;
+    margin: 0px 16px 0px 16px;
+    padding: 15px 20px;
+}
+
+.titleCardSecurityDetail {
+    text-align: left;
+    font: normal normal 600 14px/24px Proxima Nova;
+    color: #819FB9;
+    letter-spacing: 1.4px;
+    opacity: 1;
+}
+
+.infoCardSecurityDetail {
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #819FB9;
+    padding-bottom: 20px;
+}
+
+.infoCardSecurityDetailLBP {
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+}
+
+#infoCardSecurityDetailSecurityName {
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #819FB9;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cfd8e2;
+}
+#infoCardSecurityDetailSecurityNameEdit {
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #819FB9;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cfd8e2;
+}
+
+.modal-dialog {
+    margin: 78px 278px;
+}
+
+.tdStyle {
+    margin-bottom: 20px;
+}
+
+.k-i-sort-asc-sm:before {
+    content: "\e004";
+}
+
+.k-i-sort-desc-sm:before {
+    content: "\e006";
+}
+
+div.avatarCountry {
+    height: 15px;
+    width: 18px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    float: left;
+    margin-right: 4px;
+    margin-top: 2px;
+}
+
+
+.list-head ul li {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+}
+
+.list-head ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.progress-status-txt li {
+    display: inline-block;
+    margin: 6px 5px;
+    width: 23%;
+}
+
+.progress-status-txt li {
+    width: 21%;
+}
+
+
+.header-case-detail {
+    padding-right: 150px;
+    padding-left: 150px;
+    background-color: white;
+    /*    height:129px;*/
+}
+
+
+.collapseExpandSpan {
+    margin-left: 5px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #0077E6;
+    font: normal normal 600 14px/41px Proxima Nova;
+}
+
+.collapseExpandSpanEdit {
+    margin-left: 5px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #0077E6;
+    font: normal normal 600 14px/41px Proxima Nova;
+}
+
+a.k-icon.k-i-expand {
+    color: #0077E6;
+}
+
+a.k-icon.k-i-collapse {
+    color: #0077E6;
+}
+
+.k-i-collapse:before {
+    content: "\e013";
+}
+
+.k-i-expand:before {
+    content: "\e015";
+}
+
+#kendoGridSecuritiesDrop tbody .k-detail-row .k-hierarchy-cell {
+    display: none;
+}
+
+#kendoGridSecuritiesDrop tbody .k-detail-row .k-detail-cell {
+    background-color: #F3F5F7;
+}
+
+#SecuritiesDropEditGrid tbody .k-detail-row .k-hierarchy-cell {
+    display: none;
+}
+
+#SecuritiesDropEditGrid tbody .k-detail-row .k-detail-cell {
+    background-color: #F3F5F7;
+}
+
+span[class*="k-input k-textarea explanationDetail k-readonly k-input-solid k-input-md k-rounded-md k-resize-none"] {
+    border-style: none;
+}
+
+.explanationDetail {
+    color: black !important;
+    padding: 0px !important;
+    background-color: #F3F5F7;
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+}
+
+span[class*="k-input k-textarea explanationDetailEdit k-readonly k-input-solid k-input-md k-rounded-md k-resize-none"] {
+    border-style: none;
+}
+
+.explanationDetailEdit {
+    color: black !important;
+    padding: 0px !important;
+    background-color: #F3F5F7;
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+}
+
+#modalSecurityDropsGridHeader {
+    padding: 16px 16px 0px 16px;
+    border: none;
+}
+
+#modalSecurityDropsGridHeaderEdit {
+    padding: 16px 16px 0px 16px;
+    border: none;
+}
+
+#logoCaseDetailEdit {
+    font-size: 60px;
+    border-radius: 20px;
+    padding: 0.03em;
+    height: 100%;
+}
+
+#logoCaseDetail {
+    font-size: 60px;
+    border-bottom: solid 1px #D9E1E7CC;
+    border-radius: 20px;
+    padding: 0.03em;
+    height: 200px;
+}
+
+#caseDetailContentTab .inputEditMode {
+    /*    width: calc(100% - 35px) !important;*/
+    padding: 0 !important;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #0077E6;
+    border: none;
+}
+
+.hrEditMode {
+    margin: 0px;
+    margin-right: 40px;
+    color: #0077E6;
+    height: 2px !important;
+}
+
+.readOnlyEditMode {
+    color: #819FB9;
+    font-family: Proxima Nova;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    /*    font: normal normal 600 18px/24px Proxima Nova;*/
+}
+
+.addSecuritiesButton {
+    float: none !important;
+    margin-left: 40px;
+    width: 133px;
+    height: 36px;
+    border: 2px solid #0077E6;
+    color: white;
+    font-family: "Proxima Nova";
+    font-size: 1rem;
+    font-weight: bolder;
+    background: #0077E6 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+#lbPeriodReadOnly {
+    color: #06152B;
+    font-family: Proxima Nova;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.lbPeriodEditUnChecked {
+    color: #819FB9;
+    font-family: Proxima Nova;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.lbPeriodEditChecked, #lbPeriodEdit:hover {
+    color: #06152B;
+    font-family: Proxima Nova;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+img#logo {
+    height: 100%;
+    object-fit: scale-down;
+    width: 100%;
+    max-width: 100%;
+}
+
+/*img#logo {
+    max-width: 100%;
+    height: auto;
+}*/
+
+
+
+.lbPeriodCheckbox {
+    -webkit-appearance: none;
+    margin: 0;
+    background: #38445500 0% 0% no-repeat padding-box;
+    border: 1px solid #0077E6;
+    border-radius: 8px;
+    width: 26px;
+    height: 26px;
+    display: inline-grid;
+    place-content: center;
+}
+
+    .lbPeriodCheckbox::before {
+        content: "";
+        width: 1em;
+        height: 1em;
+    }
+
+    .lbPeriodCheckbox:checked::before {
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        background: white 0% 0% no-repeat padding-box;
+        border-radius: 8px;
+    }
+
+    .lbPeriodCheckbox:focus {
+        background: #0077E6 0% 0% no-repeat padding-box;
+        border: 1px solid #0077E6;
+        border-radius: 8px;
+    }
+
+.logoButtonEdit {
+    background-color: white;
+    border: 2px solid #0077E6;
+    color: #0077E6;
+    border-radius: 10px;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-weight: bolder;
+    position: absolute;
+    margin: 45px 0px 0px 50px;
+    width: 118px;
+    height: 36px;
+}
+
+
+.customModalEdit {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px;
+    opacity: 1;
+}
+
+.modal-contentEdit {
+    border: none;
+    position: relative;
+    border-radius: 1.25rem;
+    height: 100%;
+}
+
+.missingFieldContainerEdit {
+    position: fixed;
+    top: -50px;
+    z-index: 3;
+    width: 95%;
+    text-align: center;
+}
+
+
+.missingFieldMessageEdit {
+    color: white;
+    background-color: #EA3A3D;
+    padding: 20px;
+    border-radius: 16px;
+    font-weight: bolder;
+}
+
+.modal-headerEdit {
+    padding: 33px 30px 20px 30px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #06152C;
+    opacity: 1;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Modal Body */
+.modal-bodyEdit {
+    padding: 0px 33px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 80px;
+    overflow-y: scroll;
+    text-align: left;
+    letter-spacing: 1.4px;
+    color: #809FB8;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+}
+
+.k-button {
+    border: none;
+}
+
+
+.modal-overlayEdit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: #949AA4;
+    mix-blend-mode: multiply;
+    display: none;
+}
+
+.modal-overlayEditPopUp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: #949AA4;
+    mix-blend-mode: multiply;
+    display: none;
+}
+
+/*.inputGroupEdit {
+    border-bottom: 2px solid #D9E1E7;
+    margin: 0;
+}
+*/
+.inputGroupEdit {
+    border-bottom: 2px solid #0077E6;
+    margin: 0;
+}
+
+.inputGroupInvalid {
+    border-bottom: 1px solid #EA3A3D !important;
+}
+
+input {
+    width: 100%;
+    border: none;
+    text-align: left;
+    font: normal normal normal 18px/24px Proxima Nova;
+    letter-spacing: 0px;
+    color: #000000;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+
+    input:focus {
+        border: none;
+    }
+
+.blue-buttonEdit {
+    border-radius: 10px;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    background: #0077E6 0% 0% no-repeat padding-box;
+    border: 2px solid #0077E6;
+    width: 96px;
+    height: 36px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.SecuritiesModal-header {
+    padding: 16px 16px 5px 16px;
+    border: none;
+}
+
+.claimantsLabel {
+    font: normal normal 600 20px/41px Proxima Nova;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #0077E6;
+    opacity: 1;
+}
+
+#gridSecuritiesDrop {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 20px;
+    opacity: 1;
+    margin: 16px 16px 40px 16px;
+}
+
+#gridSecuritiesDropEdit {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 20px;
+    opacity: 1;
+    margin: 16px;
+}
+
+.modalClose {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    background: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
+    color: #0077E6;
+    font-size: 20px;
+    font-family: "Proxima Nova";
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+    .modalClose:hover,
+    .modalClose:focus {
+        color: white;
+        background: #0077E6;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0px 3px 6px #00000029;
+    }
+
+.hint {
+    font-size: 14px;
+    color: red;
+    font-family: "Proxima Nova";
+}
+
+.blueIcon {
+    color: #0077E6;
+    font-weight: bold;
+    padding-right: 1.5rem;
+}
+
+
+
+.k-combobox {
+    height: 24px;
+}
+
+    .k-combobox .k-input-button .k-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .k-combobox > .k-input-button {
+        width: 2rem;
+        height: 2rem;
+    }
+
+.checkboxContainerEdit {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+    .checkboxContainerEdit input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 26px;
+    width: 26px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid #819FB9;
+}
+
+/* On mouse-over, add a grey background color */
+.checkboxContainerEdit:hover input ~ .checkmark {
+    background-color: white;
+    border: 2px solid #0077E6;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxContainerEdit input:checked ~ .checkmark {
+    background-color: #0077E6;
+    border: 2px solid #0077E6;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkboxContainerEdit:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkboxContainerEdit input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxContainerEdit .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.columnMargin {
+    margin-left: 30px;
+}
+
+
+.uploadCotrolLogo ul {
+    list-style-type: none;
+    padding: 0;
+    width: 96.5%;
+}
+
+    .uploadCotrolLogo ul li {
+        font: normal normal normal 14px "Proxima Nova" !important;
+    }
+
+.uploadCotrolLogo .removeFile {
+    font-weight: bold;
+    color: #819FB9;
+    font-size: 20px;
+}
+
+    .uploadCotrolLogo .removeFile:hover {
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+.uploadCotrolLogo {
+    position: relative;
+    display: flex;
+    align-items: st z-index: 1;
+}
+
+    .uploadCotrolLogo .dropzone {
+        background: #D9E1E7CC 0% 0% no-repeat padding-box;
+        opacity: 1;
+        padding: 0.04em, 0.04em;
+        filter: alpha(opacity = 1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        border-radius: 16px;
+        background: transparent;
+    }
+
+.logodropzoneButton {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logodropzoneTexts {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+
+.logodropzoneText {
+    color: #819FB9;
+    font-size: 14px;
+    text-align: center;
+}
+
+.logodropzoneLogo {
+    text-align: center;
+}
+
+
+
+.contentInvalid {
+    border: 1px solid #EA3A3D !important;
+}
+
+#caseDetailEditModeContainer .validationMessage {
+    color: #EA3A3D !important;
+    float: right;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+}
+
+.missingFieldContainer {
+    position: fixed;
+    top: -50px;
+    z-index: 3;
+    width: 95%;
+    text-align: center;
+}
+
+.missingFieldMessage {
+    color: white;
+    background-color: rgba(234, 58, 61, 0.7);
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 16px;
+}
+
+
+#caseDetailEditModeContainer .k-grid-add {
+    height: 32px !important;
+    background-color: white;
+    border: 2px solid white;
+    color: #0077E6;
+    border-radius: 8px;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-left: 10px;
+}
+
+    #caseDetailEditModeContainer .k-grid-add:hover {
+        border: 2px solid #0077E6;
+        color: #0077E6;
+    }
+
+#caseDetailEditModeContainer .fetchdrops {
+    height: 32px !important;
+    background-color: white;
+    border: 2px solid white;
+    color: #0077E6;
+    border-radius: 8px;
+    font-family: "Proxima Nova";
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-left: 10px;
+}
+
+    #caseDetailEditModeContainer .fetchdrops:hover {
+        border: 2px solid #0077E6;
+        color: #0077E6;
+    }
+
+#caseDetailEditModeContainer .k-grid .k-grid-edit, .k-grid-cancel, .k-grid-update, .k-grid-delete {
+    background-color: white;
+    border: 2px solid white;
+    color: #0077E6 !important;
+    border-radius: 8px;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#caseDetailEditModeContainer .k-grid-Delete {
+    background-color: white;
+    border: 2px solid white;
+    color: #0077E6 !important;
+    border-radius: 8px;
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+    #caseDetailEditModeContainer .k-grid-delete:hover {
+        border: 2px solid #0077E6;
+    }
+
+#caseDetailEditModeContainer .k-grid-edit:hover {
+    border: 2px solid #0077E6 !important;
+}
+
+#caseDetailEditModeContainer .k-grid tbody button.k-button {
+    min-width: 1px !important;
+    min-height: 1px !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    color: #0077E6;
+}
+
+#caseDetailEditModeContainer .k-combobox .k-input-button .k-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+#caseDetailEditModeContainer .k-combobox > .k-input-button {
+    width: 2rem;
+    height: 2rem;
+}
+
+#caseDetailEditModeContainer .k-combobox {
+    height: 24px;
+}
+
+#caseDetailEditModeContainer .k-datepicker > .k-input-button {
+    width: 2rem;
+    height: 2rem;
+}
+
+#caseDetailEditModeContainer .k-multiselect .k-input-inner {
+    display: unset;
+    padding-bottom: 0px;
+}
+
+#caseDetailEditModeContainer .k-multiselect .k-clear-value {
+    position: absolute;
+    right: unset;
+    top: unset;
+    padding-right: 30px;
+}
+
+#caseDetailEditModeContainer .k-multiselect .k-chip-md {
+    font-family: "Proxima Nova" !important;
+}
+
+#caseDetailEditModeContainer .k-i-calendar {
+    width: inherit;
+}
+
+#caseDetailEditModeContainer .k-i-pencil {
+    color: #0077E6 !important;
+}
+
+#editSecurityRow {
+    background: white;
+    border: 1px solid white;
+}
+
+.k-master-row {
+    cursor: pointer;
+}
+

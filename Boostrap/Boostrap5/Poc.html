@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> - SecuritiesTrackerV3.Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/kendo/kendo.bootstrap-main.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.3.917/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2019.3.917/styles/kendo.silver.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/Site/site.css" />
+    <link href="/css/CommonStyles/CommonStyles.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/js/kendo/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/kendo/kendo.all.min.js"></script>
+    <script src="/js/kendo/kendo.aspnetmvc.min.js"></script>
+    <script src="/js/Resources/Helpers.js"></script>
+
+    <style>
+        .k-loading-image {
+            color: white;
+            background-image: url("");
+            top: 32%;
+            left: 44%;
+            content: "";
+            width: 115px;
+            height: 115px;
+            border: 22px solid #0077E6;
+            border-top-color: #A3B53E;
+            border-radius: 50%;
+            animation: loading 0.75s ease infinite;
+        }
+
+        .k-i-loading {
+            background-image: url("");
+            color: red;
+        }
+
+        .k-loading-image--hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+
+        @keyframes loading {
+            from {
+                transform: rotate(0turn);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        .bd-navbar {
+    padding: .75rem 0;
+    background-color: transparent;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15),inset 0 -1px 0 rgba(255,255,255,0.15);
+}
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+.navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.navbar {
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0.5rem;
+    --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
+    --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
+    --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
+    --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-brand-padding-y: 0.3125rem;
+    --bs-navbar-brand-margin-end: 1rem;
+    --bs-navbar-brand-font-size: 1.25rem;
+    --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
+    --bs-navbar-nav-link-padding-x: 0.5rem;
+    --bs-navbar-toggler-padding-y: 0.25rem;
+    --bs-navbar-toggler-padding-x: 0.75rem;
+    --bs-navbar-toggler-font-size: 1.25rem;
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
+    --bs-navbar-toggler-border-radius: 0.375rem;
+    --bs-navbar-toggler-focus-width: 0.25rem;
+    --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+}
+
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+.bd-gutter {
+    --bs-gutter-x: 3rem;
+}
+.flex-lg-nowrap {
+    flex-wrap: nowrap!important;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+    </style>
+</head>
+<!--class="mw-100" style="top: 0px; left: 0px; background: var(--light-gray) 0% 0% no-repeat padding-box; background: #F9F9F9 0% 0% no-repeat padding-box; opacity: 1; zoom:80%; overflow: hidden;"-->
+
+<body class="mw-100"
+    style="top: 0px; left: 0px; background: var(--light-gray) 0% 0% no-repeat padding-box; background: #F9F9F9 0% 0% no-repeat padding-box; opacity: 1; zoom: 80%;">
+    <header id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container mw-100"
+                style="text-align: center; font-family: Proxima Nova; font-weight: 600; font-size: 18px; color: #A3B53E ; background-color: #000000;">
+                <a class="navbar-brand" style="padding-left: 8px;" href="/"><img src="/images/Imagen 1.png" /></a>
+                <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse globalMenu" id="navbarNav">
+                    <ul class="navbar-nav px-4">
+                        <li class="nav-item flex-md-fill">
+                            <a id="allCasesOption" style="color: #A3B53E !important"
+                                class="removeSpaceMenu nav-link text-light menu-options" href="/">All Cases</a>
+                        </li>
+                        <li class="nav-item flex-md-fill">
+                            <a id="newCasesOption" class="removeSpaceMenu nav-link text-light menu-options"
+                                href="/NewCases">New Cases</a>
+                        </li>
+                        <li class="nav-item flex-md-fill">
+                            <a id="activeCasesOption" class="removeSpaceMenu nav-link text-light menu-options"
+                                href="/ActiveCases">Active Cases</a>
+                        </li>
+                        <li class="nav-item flex-md-fill">
+                            <a id="settledCasesOption" class="removeSpaceMenu nav-link text-light menu-options"
+                                href="/SettledCases">Settled Cases</a>
+                        </li>
+                        <li class="nav-item flex-sm-fill">
+                            <div>
+                                <div class="dropdown" id="adminSection">
+                                    <button onclick="displayDropdownAdminMenu()" class="dropbtn"><img id="adminMenu"
+                                            style="padding-left:24px" src="/images/Profile.png" /></button>
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <a href="">
+                                            <span>
+                                                <svg id="Grupo_1341" data-name="Grupo 1341" width="16.873" height="22"
+                                                    viewBox="0 0 16.873 22">
+                                                    <defs>
+                                                        <clipPath id="clip-path">
+                                                            <rect id="Rectángulo_764" data-name="Rectángulo 764"
+                                                                width="16.873" height="22" fill="#06152c" />
+                                                        </clipPath>
+                                                    </defs>
+                                                    <g id="Grupo_1337" data-name="Grupo 1337"
+                                                        clip-path="url(#clip-path)">
+                                                        <path id="Trazado_9246" data-name="Trazado 9246"
+                                                            d="M1.6,0H16.442a.77.77,0,0,1,.431.792q-.011,7.968-.005,15.937c0,.561-.2.764-.765.764H3.153c-.456,0-.912-.006-1.367,0A1.829,1.829,0,0,0,.078,18.808C.06,18.871.039,18.934.02,19L0,18.992v-.136Q0,10.4,0,1.942c0-.059,0-.117,0-.176A1.813,1.813,0,0,1,1.136.146,4.124,4.124,0,0,1,1.6,0M7.836,6.791v6.343H7.614c-.43,0-.859,0-1.289,0A.923.923,0,0,0,6,13.195a.571.571,0,0,0-.34.637.578.578,0,0,0,.586.473q2.187,0,4.375,0l.039,0a.58.58,0,0,0,.088-1.148,1.34,1.34,0,0,0-.271-.021c-.48,0-.96,0-1.448,0V6.793h2.361c-.023.078-.039.14-.058.2q-.618,1.982-1.236,3.964a.592.592,0,0,0,.621.84q1.475,0,2.949,0a.593.593,0,0,0,.63-.847q-.38-1.229-.765-2.457L13,6.8c.1-.013.174-.019.249-.033a.57.57,0,0,0,.465-.489.555.555,0,0,0-.312-.6,1,1,0,0,0-.379-.067c-1.256,0-2.513,0-3.769,0H9.02c0-.238,0-.446,0-.654a.585.585,0,1,0-1.17.005c0,.208,0,.415,0,.648H3.9c-.065,0-.13,0-.2,0a.582.582,0,0,0-.04,1.159c.063.009.126.015.2.024-.021.075-.037.136-.056.2q-.618,1.982-1.236,3.964a.59.59,0,0,0,.617.842q1.475,0,2.949,0c.545,0,.792-.338.628-.863q-.484-1.554-.97-3.108c-.106-.34-.21-.68-.32-1.036Z"
+                                                            fill="#06152c" />
+                                                        <path id="Trazado_9247" data-name="Trazado 9247"
+                                                            d="M37.587,357.664c0,.28.012.527,0,.772a.59.59,0,0,1-.646.562H31.785q-4.236,0-8.472-.005a1.054,1.054,0,0,1-.48-.118.617.617,0,0,1-.283-.723.654.654,0,0,1,.612-.486c.058,0,.117,0,.176,0H37.587Z"
+                                                            transform="translate(-21.348 -338.999)" fill="#06152c" />
+                                                    </g>
+                                                </svg>
+                                            </span>
+                                            <span style="padding-left:10px;">Administration</span>
+                                        </a>
+                                        <a href="\\#"
+                                            onclick="window.location.href=&#x27;/DefendantsAndSecurities&#x27;;">
+                                            <span>
+                                                <svg width="22.001" height="22" viewBox="0 0 22.001 22">
+                                                    <path id="Icon_awesome-gavel" data-name="Icon awesome-gavel"
+                                                        d="M19.726,7.788,18.842,6.9a.938.938,0,0,0-1.326,0l-.221.221-4.42-4.419.221-.221a.937.937,0,0,0,0-1.326L12.213.275a.938.938,0,0,0-1.326,0L6.025,5.136a.937.937,0,0,0,0,1.326l.884.884a.938.938,0,0,0,1.326,0l.221-.221L10,8.671,6.837,11.837l-.221-.221a1.25,1.25,0,0,0-1.768,0L.366,16.1a1.25,1.25,0,0,0,0,1.768l1.768,1.768a1.25,1.25,0,0,0,1.768,0l4.482-4.482a1.25,1.25,0,0,0,0-1.768l-.221-.221L11.329,10l1.547,1.547-.221.221a.937.937,0,0,0,0,1.326l.884.884a.938.938,0,0,0,1.326,0l4.862-4.861a.938.938,0,0,0,0-1.326Z"
+                                                        transform="translate(0 0)" fill="#06152c" />
+                                                </svg>
+
+                                            </span>
+                                            <span style="padding-left:10px;">
+                                                Defendants and Securities
+                                            </span>
+                                        </a>
+                                        <a href="">
+                                            <span>
+                                                <svg width="22.102" height="22" viewBox="0 0 12.102 22">
+                                                    <path id="Form_30" data-name="Form 30"
+                                                        d="M2.716,20A2.722,2.722,0,0,1,0,17.272V2.727A2.721,2.721,0,0,1,2.716,0H7.241a.909.909,0,0,1,0,1.818H2.716a.906.906,0,0,0-.9.908V17.272a.906.906,0,0,0,.9.91H7.241a.909.909,0,0,1,0,1.818Zm10.22-5.721a.913.913,0,0,1,0-1.287l2.076-2.084H6.336a.909.909,0,0,1,0-1.818h8.675L12.936,7.006a.908.908,0,0,1,1.28-1.287l3.62,3.638a.9.9,0,0,1,.237.415h0l0,.02s0,0,0,0,0,.011,0,.018v0l0,.018v0c0,.006,0,.012,0,.017v.006c0,.005,0,.011,0,.016v.006c0,.006,0,.011,0,.017a.035.035,0,0,1,0,.006l0,.018v0c0,.006,0,.013,0,.02v0c0,.015,0,.031,0,.046h0v.009s0,.008,0,.012v.021a.9.9,0,0,1-.05.256h0l-.007.02v0l-.006.015,0,.008,0,.012-.005.012,0,.006-.007.016v0a.881.881,0,0,1-.175.247l-3.62,3.638a.9.9,0,0,1-1.28,0Z"
+                                                        fill="#06152c" />
+                                                </svg>
+                                            </span><span style="padding-left:10px;">Logout</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <link href="CaseDetail.css" rel="stylesheet" />
+    <!--style="position: fixed; top: 83px; left: 0; right: 0; bottom: 0; height: 320px; background-color: white; width:100%; max-width:100%;  -->
+    <!--   <div id="generalHeader" style="background-color: white; left: 0; /*right: 0;*/ position:sticky;top:0;z-index:10;">
+        <div class="row mx-0 bg-white">
+            <div class="col-12 px-0">
+                <div id="EditContainer" style="padding: 10px 145px 10px 145px;">
+                    <div class="row">
+                        <div class="col-6 vertical-aligned-div-40h">
+                            <span style="color:white; font: normal normal 700 24px/30px Proxima Nova;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23.332"
+                                    viewBox="0 0 22 23.332">
+                                    <g id="Icon_feather-edit-3" data-name="Icon feather-edit-3"
+                                        transform="translate(-3 -2.818)">
+                                        <path id="Trazado_9213" data-name="Trazado 9213" d="M18,30H28.688"
+                                            transform="translate(-5.188 -5.35)" fill="none" stroke="#fff"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
+                                        <path id="Trazado_9214" data-name="Trazado 9214"
+                                            d="M18.659,5.056a2.046,2.046,0,0,1,3.146,0,2.76,2.76,0,0,1,0,3.563L8.7,23.462,4.5,24.65,5.549,19.9Z"
+                                            fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="3" />
+                                    </g>
+                                </svg>
+                                Edit Mode
+                            </span>
+                        </div>
+                        <div class="col-6 vertical-aligned-div-40h">
+                            <button id="enableCaseEdit" class="edit-button" style="float: right">
+                                <img src="/images/CaseDetails/Icon awesome-edit.png" /> <span> Edit</span>
+                            </button>
+                            <button id="enableViewMode" class="edit-button" style="float: right; display: none;">
+                                <img src="/images/CaseDetails/Icon feather-eye.png" /> View
+                            </button>
+                            <button id="saveCaseDetail" class="save-button" style="float: right; display: none;">
+                                <img src="/images/CaseDetails/Icon feather-save.svg" /> Save
+                            </button>
+                            <button id="saveCaseOverview" class="save-button" style="float: right; display: none;">
+                                <img src="/images/CaseDetails/Icon feather-save.svg" /> Save
+                            </button>
+                            <button id="saveCaseEdit" class="edit-button"
+                                style="float: right; display: none;">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-2 px-0">
+                <div id="caseDetailHeader">
+                    <div class="container-fluid header-case-detail">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div><span class="caseID"> Case ID </span> <span id="caseSkFromHeader"
+                                        class="caseID">2560</span></div>
+                                <div id="defendantCompany">
+                                    361 Degrees International Ltd/ADR (2023)
+                                </div>
+                                <div id="defendantCompanyPN">
+
+                                </div>
+                                <div class="headerRow3 list-head">
+                                    <ul>
+                                        <li>
+                                            <div id="ticker"> NOTICKER</div>
+                                        </li>
+                                        <li>
+                                            <div id="exchange">
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div id="tickerPrice" style="visibility:hidden">$ 0.00</div>
+                                        </li>
+                                        <li>
+                                            <div><span id="tickerChange" style="visibility:hidden">$ +0.00</span></div>
+                                        </li>
+                                        <li>
+                                            <div style="visibility:hidden"><img id="imgarrow"
+                                                    style="height:1.25rem; width:1.25rem;"
+                                                    src="/images/CaseDetails/greenarrowcircle.svg" /><span
+                                                    id="tickerChangePercentage"> +0.00 %</span></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <div class="col-md-3 tdStyle header2Row1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 tdStyle header2Row1">
+                                        <div>Docket No.</div>
+                                        <div class="header2Row2" id="infoCardDocket">
+                                            <span id="spanDocket" title="446-2-1">446-2-1</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 tdStyle header2Row1">
+                                        <div>Allegation</div>
+                                        <div class="header2Row2">
+                                            10b-5 / Section 11
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 tdStyle header2Row1">
+                                        <div> <a target="_blank" href="//"><img style="height:1.25rem; width:1.25rem;"
+                                                    src="/images/CaseDetails/lpdeadlineicon.svg" /></a> <span
+                                                id="deadlineCaseStatus"></span></div>
+                                        <div class="header2Row2" id="lpDeadlineValue">
+                                            <span style="margin-left: 25px;">05/25/2023</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 tdStyle header2Row1">
+                                        <div id="countDownDiv" style="display:none">
+                                            <div>Countdown</div>
+                                            <div>
+                                                <span id="countDown">78 Days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="header2Row2" style="display:none">
+
+                                        <div id="wizard" name="wizard" style="margin-top:0px; margin-bottom: 0px;">
+                                        </div>
+                                        <script>kendo.syncReady(function () { jQuery("#wizard").kendoWizard({}); });</script>
+
+                                        <div style="padding-left: 30px; display:none">
+                                            <span class="countStepper" id="currentProgressStep">1</span><span
+                                                class="countStepper">/<span class="countStepper"
+                                                    id="totalSteppers">13</span></span><span id="descStepper"> First
+                                                Complaint</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        //IMPORTANT: Don't wait until DOM is ready (taking a while due this partial need to wait untul entire Case Detail Model is ready) so this lines must be out of $(document).ready().
+                        var caseStatus = 'New';
+                        var deadline = $("#deadlineCaseStatus");
+                        if (caseStatus == 'New' || caseStatus == 'Active' || caseStatus == 'Dismissed') {
+                            deadline.text("LP Deadline");
+                        }
+
+                        if (caseStatus == 'Settled' || caseStatus == 'Disbursed' || caseStatus == 'Judgement') {
+                            deadline.text("POC Deadline");
+                        }
+
+                        var countDownValue = '78';
+                        var countDown = $("#countDown");
+                        if (countDownValue < 0) {
+                            $("#countDownDiv").hide();
+                        }
+                        else {
+                            $("#countDownDiv").show();
+                            if (countDownValue > 0 && countDownValue <= 5) {
+                                countDown.replaceWith("<span id='countDown' style= 'color: #EA3A3D' >78 Days</span>");
+                            }
+
+                            if (countDownValue == 0) {
+                                countDown.replaceWith("<span id='countDown' style= 'color: #EA3A3D' >Today</span>");
+                            }
+                        }
+
+                        $(document).ready(function () {
+                            var deadlineValue = '05/25/2023';
+                            var deadlineDiv = $("#lpDeadlineValue");
+                            if (deadlineValue == "MM/DD/YYYY") {
+                                deadlineDiv.css("visibility", "hidden");
+                            } else {
+                                deadlineDiv.css("visibility", "visible");
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <header class="navbar navbar-expand-lg bd-navbar sticky-top">
+        <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+            <div class="bd-navbar-toggle">
+                <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar"
+                    aria-controls="bdSidebar" aria-label="Toggle docs navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+
+                    <span class="d-none fs-6 pe-1">Browse</span>
+                </button>
+            </div>
+
+            <a class="navbar-brand p-0 me-0 me-lg-2" href="/" aria-label="Bootstrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block my-1" viewBox="0 0 118 94"
+                    role="img">
+                    <title>Bootstrap</title>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                        fill="currentColor" />
+                </svg>
+            </a>
+
+            <div class="d-flex">
+
+                <div class="bd-search" id="docsearch" data-bd-docs-version="5.3"></div>
+
+
+                <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-label="Toggle navigation">
+                    <svg class="bi" aria-hidden="true">
+                        <use xlink:href="#three-dots"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar"
+                aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+                <div class="offcanvas-header px-4 pb-0">
+                    <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Bootstrap</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close" data-bs-target="#bdNavbar"></button>
+                </div>
+
+                <div class="offcanvas-body p-4 pt-0 p-lg-0">
+                    <hr class="d-lg-none text-white-50">
+                    <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true"
+                                href="/docs/5.3/getting-started/introduction/"
+                                onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="/docs/5.3/examples/"
+                                onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://icons.getbootstrap.com/"
+                                onclick="ga('send', 'event', 'Navbar', 'Community links', 'Icons');" target="_blank"
+                                rel="noopener">Icons</a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://themes.getbootstrap.com/"
+                                onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');" target="_blank"
+                                rel="noopener">Themes</a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://blog.getbootstrap.com/"
+                                onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');" target="_blank"
+                                rel="noopener">Blog</a>
+                        </li>
+                    </ul>
+
+                    <hr class="d-lg-none text-white-50">
+
+                    <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/twbs" target="_blank"
+                                rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                                    viewBox="0 0 512 499.36" role="img">
+                                    <title>GitHub</title>
+                                    <path fill="currentColor" fill-rule="evenodd"
+                                        d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" />
+                                </svg>
+                                <small class="d-lg-none ms-2">GitHub</small>
+                            </a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/getbootstrap"
+                                target="_blank" rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                                    viewBox="0 0 512 416.32" role="img">
+                                    <title>Twitter</title>
+                                    <path fill="currentColor"
+                                        d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" />
+                                </svg>
+                                <small class="d-lg-none ms-2">Twitter</small>
+                            </a>
+                        </li>
+                        <li class="nav-item col-6 col-lg-auto">
+                            <a class="nav-link py-2 px-0 px-lg-2" href="https://opencollective.com/bootstrap"
+                                target="_blank" rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    fill-rule="evenodd" class="navbar-nav-svg" viewBox="0 0 40 41" role="img">
+                                    <title>Open Collective</title>
+                                    <path fill-opacity=".4"
+                                        d="M32.8 21c0 2.4-.8 4.9-2 6.9l5.1 5.1c2.5-3.4 4.1-7.6 4.1-12 0-4.6-1.6-8.8-4-12.2L30.7 14c1.2 2 2 4.3 2 7z" />
+                                    <path
+                                        d="M20 33.7a12.8 12.8 0 0 1 0-25.6c2.6 0 5 .7 7 2.1L32 5a20 20 0 1 0 .1 31.9l-5-5.2a13 13 0 0 1-7 2z" />
+                                </svg>
+                                <small class="d-lg-none ms-2">Open Collective</small>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                            <hr class="d-lg-none my-2 text-white-50">
+                        </li>
+
+
+
+                        <li class="nav-item dropdown">
+                            <button type="button" class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                                <span class="d-lg-none" aria-hidden="true">Bootstrap</span><span
+                                    class="visually-hidden">Bootstrap&nbsp;</span> v5.3 <span
+                                    class="visually-hidden">(switch to other versions)</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <h6 class="dropdown-header">v5 releases</h6>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between active"
+                                        aria-current="true" href="/docs/5.3/getting-started/introduction/">
+                                        Latest (5.3.x)
+                                        <svg class="bi">
+                                            <use xlink:href="#check2"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="https://getbootstrap.com/docs/5.2/getting-started/introduction/">v5.2.3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">v5.1.3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">v5.0.2</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <h6 class="dropdown-header">Previous releases</h6>
+                                </li>
+                                <li><a class="dropdown-item" href="https://getbootstrap.com/docs/4.6/">v4.6.x</a></li>
+                                <li><a class="dropdown-item" href="https://getbootstrap.com/docs/3.4/">v3.4.1</a></li>
+                                <li><a class="dropdown-item" href="https://getbootstrap.com/2.3.2/">v2.3.2</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/docs/versions/">All versions</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                            <hr class="d-lg-none my-2 text-white-50">
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <button
+                                class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+                                id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown"
+                                data-bs-display="static">
+                                <svg class="bi my-1 theme-icon-active">
+                                    <use href="#circle-half"></use>
+                                </svg>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme"
+                                style="--bs-dropdown-min-width: 8rem;">
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center"
+                                        data-bs-theme-value="light">
+                                        <svg class="bi me-2 opacity-50 theme-icon">
+                                            <use href="#sun-fill"></use>
+                                        </svg>
+                                        Light
+                                        <svg class="bi ms-auto d-none">
+                                            <use href="#check2"></use>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center"
+                                        data-bs-theme-value="dark">
+                                        <svg class="bi me-2 opacity-50 theme-icon">
+                                            <use href="#moon-stars-fill"></use>
+                                        </svg>
+                                        Dark
+                                        <svg class="bi ms-auto d-none">
+                                            <use href="#check2"></use>
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                                        data-bs-theme-value="auto">
+                                        <svg class="bi me-2 opacity-50 theme-icon">
+                                            <use href="#circle-half"></use>
+                                        </svg>
+                                        Auto
+                                        <svg class="bi ms-auto d-none">
+                                            <use href="#check2"></use>
+                                        </svg>
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--id="BG" -->
+    <div style="background-color: #F9F9F9; left: 0; right: 0; bottom: 0;">
+        <div id="caseOverviewContentTab" class="tab-pane">
+            <link href="caseOverview.css" rel="stylesheet" />
+            <style>
+                /*Div parent*/
+                .bd-layout {
+                    display: grid;
+                    grid-template-areas: "sidebar main";
+                    grid-template-columns: 1fr 5fr;
+                    gap: 1.5rem;
+                }
+
+                .bd-gutter {
+                    --bs-gutter-x: 3rem;
+                }
+
+                .my-md-4 {
+                    margin-top: 1.5rem !important;
+                    margin-bottom: 1.5rem !important;
+                }
+
+                .container,
+                .container-lg,
+                .container-md,
+                .container-sm,
+                .container-xl,
+                .container-xxl {
+                    max-width: 1320px;
+                }
+
+                .container,
+                .container-fluid,
+                .container-lg,
+                .container-md,
+                .container-sm,
+                .container-xl,
+                .container-xxl {
+                    --bs-gutter-x: 1.5rem;
+                    --bs-gutter-y: 0;
+                    width: 100%;
+                    padding-right: calc(var(--bs-gutter-x) * .5);
+                    padding-left: calc(var(--bs-gutter-x) * .5);
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+
+                /*Div main*/
+                .bd-main {
+                    grid-template-areas: "intro   toc" "content toc";
+                    grid-template-rows: auto 1fr;
+                    grid-template-columns: 4fr 1fr;
+                }
+
+                .bd-main {
+                    display: grid;
+                    /* grid-template-areas: "intro" "toc" "content"; */
+                    /* grid-template-rows: auto auto 1fr; */
+                    /* gap: inherit; */
+                }
+
+                .bd-main {
+                    grid-area: main;
+                }
+
+                /*Div index*/
+                .bd-toc {
+                    position: -webkit-sticky;
+                    position: sticky;
+                    top: 15rem;
+                    right: 0;
+                    z-index: 2;
+                    height: calc(100vh - 7rem);
+                    overflow-y: auto;
+                }
+
+                .bd-toc {
+                    grid-area: toc;
+                }
+
+                .ps-xl-3 {
+                    padding-left: 1rem !important;
+                }
+
+                .mb-lg-5 {
+                    margin-bottom: 3rem !important;
+                }
+
+                .my-lg-0 {
+                    margin-top: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .text-body-secondary {
+                    --bs-text-opacity: 1;
+                    color: var(--bs-secondary-color) !important;
+                }
+
+                .bd-toc-collapse {
+                    display: block !important;
+                }
+
+
+                /*Div content*/
+                .bd-content {
+                    grid-area: content;
+                    min-width: 1px;
+                }
+
+                .ps-lg-2 {
+                    padding-left: .5rem !important;
+                }
+            </style>
+            <div class="container-xxl bd-gutter mt-0 my-md-4 bd-layout" style="
+    margin-top: 0px;
+">
+                <main class="bd-main order-1">
+                    <div class="bd-toc mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-body-secondary">
+                        <button class="btn btn-link p-md-0 mb-2 mb-md-0 text-decoration-none bd-toc-toggle d-md-none"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false"
+                            aria-controls="tocContents">
+                            On this page
+                            <svg class="bi d-md-none ms-2" aria-hidden="true">
+                                <use xlink:href="#chevron-expand"></use>
+                            </svg>
+                        </button>
+                        <strong class="d-none d-md-block h6 my-2">On this page</strong>
+                        <hr class="d-none d-md-block my-2">
+                        <div class="collapse bd-toc-collapse" id="tocContents">
+                            <nav id="TableOfContents">
+                                <ul>
+                                    <li><a href="#quick-start">Quick start</a></li>
+                                    <li><a href="#cdn-links">CDN links</a></li>
+                                    <li><a href="#next-steps">Next steps</a></li>
+                                    <li><a href="#js-components">JS components</a></li>
+                                    <li>
+                                        <a href="#important-globals">Important globals</a>
+                                        <ul>
+                                            <li><a href="#html5-doctype">HTML5 doctype</a></li>
+                                            <li><a href="#responsive-meta-tag">Responsive meta tag</a></li>
+                                            <li><a href="#box-sizing">Box-sizing</a></li>
+                                            <li><a href="#reboot">Reboot</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#community">Community</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="bd-content ps-lg-2">
+                        <h2 id="quick-start">Quick start <a class="anchor-link" href="#quick-start"
+                                aria-label="Link to this section: Quick start"></a></h2>
+                        <p>
+                            Get started by including Bootstrap’s production-ready CSS and JavaScript via CDN
+                            without the
+                            need for any build steps. See it in practice with this <a
+                                href="https://codepen.io/team/bootstrap/pen/qBamdLj">Bootstrap CodePen demo</a>.
+                        </p>
+                        <br>
+                        <ol>
+                            <li>
+                                <p>
+                                    <strong>Create a new <code>index.html</code> file in your project
+                                        root.</strong> Include the
+                                    <code>&lt;meta name="viewport"&gt;</code> tag as well for <a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag">
+                                        proper
+                                        responsive behavior
+                                    </a> in mobile devices.
+                                </p>
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Bootstrap demo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello, world!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Include Bootstrap’s CSS and JS.</strong> Place the
+                                    <code>&lt;link&gt;</code>
+                                    tag in the <code>&lt;head&gt;</code> for our CSS, and the
+                                    <code>&lt;script&gt;</code> tag
+                                    for our JavaScript bundle (including Popper for positioning dropdowns,
+                                    poppers, and
+                                    tooltips) before the closing <code>&lt;/body&gt;</code>. Learn more about
+                                    our <a href="#cdn-links">CDN links</a>.
+                                </p>
+                                <div class="highlight">
+                                    <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Bootstrap demo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">integrity</span><span class="o">=</span><span class="s">"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">"anonymous"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello, world!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"</span> <span class="na">integrity</span><span class="o">=</span><span class="s">"sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">"anonymous"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre>
+                                </div>
+                                <p>
+                                    You can also include <a href="https://popper.js.org/">Popper</a> and our JS
+                                    separately. If
+                                    you don’t plan to use dropdowns, popovers, or tooltips, save some kilobytes
+                                    by not
+                                    including Popper.
+                                </p>
+                                <div class="highlight">
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Hello, world!</strong> Open the page in your browser of choice to
+                                    see your
+                                    Bootstrapped page. Now you can start building with Bootstrap by creating
+                                    your own <a href="/docs/5.3/layout/grid/">layout</a>, adding dozens of <a
+                                        href="/docs/5.3/components/buttons/">components</a>, and utilizing <a
+                                        href="/docs/5.3/examples/">our official examples</a>.
+                                </p>
+                            </li>
+                        </ol>
+                        <h2 id="cdn-links">CDN links <a class="anchor-link" href="#cdn-links"
+                                aria-label="Link to this section: CDN links"></a></h2>
+                        <p>As reference, here are our primary CDN links.</p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>URL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CSS</td>
+                                        <td>
+                                            <code>https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>JS</td>
+                                        <td>
+                                            <code>https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js</code>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            You can also use the CDN to fetch any of our <a href="/docs/5.3/getting-started/contents/">
+                                additional
+                                builds listed in the Contents page
+                            </a>.
+                        </p>
+                        <h2 id="next-steps">Next steps <a class="anchor-link" href="#next-steps"
+                                aria-label="Link to this section: Next steps"></a></h2>
+                        <ul>
+                            <li>
+                                <p>
+                                    Read a bit more about some <a href="#important-globals">
+                                        important global environment
+                                        settings
+                                    </a> that Bootstrap utilizes.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Read about what’s included in Bootstrap in our <a
+                                        href="/docs/5.3/getting-started/contents/">contents section</a> and the
+                                    list of <a href="#js-components">components that require JavaScript</a>
+                                    below.</p>
+                            </li>
+                            <li>
+                                <p>
+                                    Need a little more power? Consider building with Bootstrap by <a
+                                        href="/docs/5.3/getting-started/download/#package-managers">
+                                        including the source files
+                                        via package manager
+                                    </a>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Looking to use Bootstrap as a module with
+                                    <code>&lt;script type="module"&gt;</code>? Please refer to our <a
+                                        href="/docs/5.3/getting-started/javascript/#using-bootstrap-as-a-module">
+                                        using Bootstrap
+                                        as a module
+                                    </a> section.
+                                </p>
+                            </li>
+                        </ul>
+                        <h2 id="js-components">JS components <a class="anchor-link" href="#js-components"
+                                aria-label="Link to this section: JS components"></a></h2>
+                        <p>
+                            Curious which components explicitly require our JavaScript and Popper? Click the
+                            show components link
+                            below. If you’re at all unsure about the general page structure, keep reading for an
+                            example
+                            page template.
+                        </p>
+                        <details>
+                            <summary class="bd-summary-link mb-3">Show components requiring JavaScript</summary>
+                            <ul>
+                                <li>Alerts for dismissing</li>
+                                <li>Buttons for toggling states and checkbox/radio functionality</li>
+                                <li>Carousel for all slide behaviors, controls, and indicators</li>
+                                <li>Collapse for toggling visibility of content</li>
+                                <li>Dropdowns for displaying and positioning (also requires <a
+                                        href="https://popper.js.org/">Popper</a>)</li>
+                                <li>Modals for displaying, positioning, and scroll behavior</li>
+                                <li>
+                                    Navbar for extending our Collapse and Offcanvas plugins to implement
+                                    responsive behaviors
+                                </li>
+                                <li>Navs with the Tab plugin for toggling content panes</li>
+                                <li>Offcanvases for displaying, positioning, and scroll behavior</li>
+                                <li>Scrollspy for scroll behavior and navigation updates</li>
+                                <li>Toasts for displaying and dismissing</li>
+                                <li>Tooltips and popovers for displaying and positioning (also requires <a
+                                        href="https://popper.js.org/">Popper</a>)</li>
+                            </ul>
+
+                        </details>
+                        <h2 id="important-globals">Important globals <a class="anchor-link" href="#important-globals"
+                                aria-label="Link to this section: Important globals"></a></h2>
+                        <p>
+                            Bootstrap employs a handful of important global styles and settings, all of which
+                            are almost
+                            exclusively geared towards the <em>normalization</em> of cross browser styles. Let’s
+                            dive in.
+                        </p>
+                        <h3 id="html5-doctype">HTML5 doctype <a class="anchor-link" href="#html5-doctype"
+                                aria-label="Link to this section: HTML5 doctype"></a></h3>
+                        <p>
+                            Bootstrap requires the use of the HTML5 doctype. Without it, you’ll see some funky
+                            and
+                            incomplete styling.
+                        </p>
+                        <div class="highlight">
+                            <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!doctype html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre>
+                        </div>
+                        <h3 id="responsive-meta-tag">Responsive meta tag <a class="anchor-link"
+                                href="#responsive-meta-tag" aria-label="Link to this section: Responsive meta tag"></a>
+                        </h3>
+                        <p>
+                            Bootstrap is developed <em>mobile first</em>, a strategy in which we optimize code
+                            for mobile devices
+                            first and then scale up components as necessary using CSS media queries. To ensure
+                            proper rendering
+                            and touch zooming for all devices, add the responsive viewport meta tag to your
+                            <code>&lt;head&gt;</code>.
+                        </p>
+                        <div class="highlight">
+                            <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+</span></span></code></pre>
+                        </div>
+                        <p>You can see an example of this in action in the <a href="#quick-start">quick
+                                start</a>.</p>
+                        <h3 id="box-sizing">Box-sizing <a class="anchor-link" href="#box-sizing"
+                                aria-label="Link to this section: Box-sizing"></a></h3>
+                        <p>
+                            For more straightforward sizing in CSS, we switch the global <code>box-sizing</code>
+                            value from
+                            <code>content-box</code> to <code>border-box</code>. This ensures
+                            <code>padding</code> does not
+                            affect the final computed width of an element, but it can cause problems with some
+                            third-party
+                            software like Google Maps and Google Custom Search Engine.
+                        </p>
+                        <p>On the rare occasion you need to override it, use something like the following:</p>
+                        <div class="highlight">
+                            <pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">selector-for-some-widget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">content-box</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre>
+                        </div>
+                        <p>
+                            With the above snippet, nested elements—including generated content via
+                            <code>::before</code> and
+                            <code>::after</code>—will all inherit the specified <code>box-sizing</code> for that
+                            <code>.selector-for-some-widget</code>.
+                        </p>
+                        <p>
+                            Learn more about <a href="https://css-tricks.com/box-sizing/">box model and sizing
+                                at CSS Tricks</a>.
+                        </p>
+                        <h3 id="reboot">Reboot <a class="anchor-link" href="#reboot"
+                                aria-label="Link to this section: Reboot"></a></h3>
+                        <p>
+                            For improved cross-browser rendering, we use <a href="/docs/5.3/content/reboot/">Reboot</a>
+                            to
+                            correct inconsistencies across browsers and devices while providing slightly more
+                            opinionated resets
+                            to common HTML elements.
+                        </p>
+                        <h2 id="community">Community <a class="anchor-link" href="#community"
+                                aria-label="Link to this section: Community"></a></h2>
+                        <p>
+                            Stay up-to-date on the development of Bootstrap and reach out to the community with
+                            these helpful
+                            resources.
+                        </p>
+                        <ul>
+                            <li>
+                                Read and subscribe to <a href="https://blog.getbootstrap.com/">The Official
+                                    Bootstrap Blog</a>.
+                            </li>
+                            <li>
+                                Ask and explore <a href="https://github.com/twbs/bootstrap/discussions">
+                                    our GitHub
+                                    Discussions
+                                </a>.
+                            </li>
+                            <li>
+                                Chat with fellow Bootstrappers in IRC. On the <code>irc.libera.chat</code>
+                                server, in the
+                                <code>#bootstrap</code> channel.
+                            </li>
+                            <li>
+                                Implementation help may be found at Stack Overflow (tagged <a
+                                    href="https://stackoverflow.com/questions/tagged/bootstrap-5"><code>bootstrap-5</code></a>).
+                            </li>
+                            <li>
+                                Developers should use the keyword <code>bootstrap</code> on packages that modify
+                                or add to the
+                                functionality of Bootstrap when distributing through <a
+                                    href="https://www.npmjs.com/search?q=keywords:bootstrap">npm</a> or similar
+                                delivery
+                                mechanisms for maximum discoverability.
+                            </li>
+                        </ul>
+                        <p>
+                            You can also follow <a href="https://twitter.com/getbootstrap">getbootstrap on
+                                Twitter</a> for the
+                            latest gossip and awesome music videos.
+                        </p>
+
+                    </div>
+                </main>
+            </div>
+
+
+            <div id="caseOverviewViewModeContainer">
+                <div class="container-fluid" id="caseOverViewViewContent">
+                    <div class="row">
+                        <div class="col-md-10 editorsContainer">
+                            <div class="row editorSectionStyle" id="ktmcCaseOverview">
+                                <div id="overv" class="overviewTitles">KTMC Case Overview</div>
+                                <!--demo-section wide-->
+                                <div id="ktmcCaseOverviewEditor" style="width:100%;height:auto !important;">
+                                    <!--aria-label="editor"-->
+                                </div>
+                                <div class="editorViewStyle">
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="caseStrengths">
+                                <div id="stre" class="overviewTitles">Case Strengths</div>
+
+                                <!--demo-section wide-->
+                                <div id="caseStrengthsEditor" style="width: 100%; height: auto !important;">
+                                    <!--aria-label="editor"-->
+                                </div>
+                                <div class="wide editorViewStyle">
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="caseWeaknesses">
+                                <div id="weak" class="overviewTitles">Case Weaknesses</div>
+
+                                <!--demo-section wide-->
+                                <div id="caseWeaknessesEditor" style="width: 100%; height: auto !important;">
+                                    <!--aria-label="editor"-->
+                                </div>
+                                <div class="wide editorViewStyle">
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="caseFootnotes">
+                                <div id="footnotes" class="overviewTitles">Footnotes</div>
+
+                                <!--demo-section wide-->
+                                <div id="caseFootnotesEditor" style="width: 100%; height: auto !important;">
+                                    <!--aria-label="editor"-->
+                                </div>
+                                <div class="wide editorViewStyle">
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="internalNotes">
+                                <div id="int" class="overviewTitles">Internal Notes</div>
+
+                                <!--demo-section wide-->
+                                <div id="internalNotesEditor" style="width: 100%; height: auto !important;">
+                                    <!--aria-label="editor"-->
+                                </div>
+                                <div class="wide editorViewStyle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 sticky-index">
+                            <div class="row">
+                                <div class="jumpToContainer" id="jumpToSection">
+                                    <div class="jumpToTitle">Jump to</div>
+                                    <div class="jumpToLinks" id="caseOverviewLink" style="cursor: pointer;">KTMC
+                                        Case Overview</div>
+                                    <div class="jumpToLinks" id="caseStrengthLink" style="cursor: pointer;">Case
+                                        Strengths</div>
+                                    <div class="jumpToLinks" id="caseWeaknessesLink" style="cursor: pointer;">
+                                        Case Weaknesses</div>
+                                    <div class="jumpToLinks" id="caseFootnotesLink" style="cursor: pointer;">
+                                        Footnotes</div>
+                                    <div class="jumpToLinks" id="internalNotesLink" style="cursor: pointer;">
+                                        Internal Notes</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="pubishedButton" style="display:none;">Published</div>
+                                    <div id="draftButton" style="display:none;">Draft</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="lastUpdatedTitle" style="display:none;">Last Updated</div>
+                                    <div id="lastUpdatedValue"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#ktmcCaseOverviewEditor").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: false
+                        },
+                        tools: []
+                    });
+
+                    $("#caseStrengthsEditor").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: false
+                        },
+                    });
+
+                    $("#caseWeaknessesEditor").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: false
+                        },
+                    });
+
+                    $("#caseFootnotesEditor").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: false
+                        },
+                    });
+
+                    $("#internalNotesEditor").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: false
+                        },
+                        toolbar: false,
+                    });
+
+                });
+            </script>
+
+            <script>
+
+                document.querySelector('#caseOverviewLink').addEventListener('click', function () {
+                    console.log("Client in Case Overview");
+                    //document.querySelector('#ktmcCaseOverview').scrollIntoView(true);
+                    /*let coords = document.getElementById("ktmcCaseOverviewEditor").getBoundingClientRect();
+                    console.log(coords);
+                    window.scroll({
+                        top: coords.y,
+                        left: 100,
+                        behavior: "smooth",
+                    });
+                    console.log(window.pageYOffset);
+                    var testDiv = document.getElementById("overv");
+                    console.log(testDiv.offsetTop);*/
+                    document.querySelector('#overv').scrollIntoView(true);
+                });
+
+                document.querySelector('#caseStrengthLink').addEventListener('click', function () {
+                    console.log("Client in Case Streght");
+                    /*let coords = document.getElementById("caseStrengthsEditor").getBoundingClientRect();
+                    console.log(coords);
+                    window.scroll({
+                        top: coords.y,
+                        left: 100,
+                        behavior: "smooth",
+                    });
+                    console.log(window.pageYOffset);
+                    var testDiv = document.getElementById("stre");
+                    console.log(testDiv.offsetTop);*/
+                    //document.querySelector('#caseStrengths').scrollIntoView(true);
+                    document.querySelector('#stre').scrollIntoView(true);
+                });
+
+                document.querySelector('#caseWeaknessesLink').addEventListener('click', function () {
+                    //document.querySelector('#caseWeaknesses').scrollIntoView(true);
+                    document.querySelector('#weak').scrollIntoView(true);
+                });
+
+                document.querySelector('#caseFootnotesLink').addEventListener('click', function () {
+                    //document.querySelector('#caseFootnotes').scrollIntoView(true);
+                    document.querySelector('#footnotes').scrollIntoView(true);
+                });
+
+                document.querySelector('#internalNotesLink').addEventListener('click', function () {
+                    //document.querySelector('#internalNotes').scrollIntoView(true);
+                    document.querySelector('#int').scrollIntoView(true);
+                });
+
+                let caseOverView = [];
+
+                async function getCaseOveriew(caseSk) {
+
+                    await Promise.resolve($.get("/getcaseoverviewbycaseid/" + caseSk), (result) => {
+                        return result;
+                    }).then((response) => {
+                        caseOverView = [];
+                        caseOverView.push(...response);
+                        setCaseOverviewValues();
+                    });
+
+                }
+
+                function setCaseOverviewValues() {
+
+                    var ktmcCaseOverviewEditor = $('#ktmcCaseOverviewEditor').data("kendoEditor");
+                    ktmcCaseOverviewEditor.value(caseOverView[0].Published_Case_Overview);
+                    ktmcCaseOverviewEditorBody = $(ktmcCaseOverviewEditor.body);
+                    ktmcCaseOverviewEditorBody.removeAttr("contenteditable").find("a").on("click.readonly", false);
+
+                    var caseStrengthsEditor = $('#caseStrengthsEditor').data("kendoEditor");
+                    caseStrengthsEditor.value(caseOverView[0].Published_Case_Strengths);
+                    caseStrengthsEditorBody = $(caseStrengthsEditor.body);
+                    caseStrengthsEditorBody.removeAttr("contenteditable").find("a").on("click.readonly", false);
+
+                    var caseWeaknessesEditor = $('#caseWeaknessesEditor').data("kendoEditor");
+                    caseWeaknessesEditor.value(caseOverView[0].Published_Case_Weaknesses);
+                    caseWeaknessesEditorBody = $(caseWeaknessesEditor.body);
+                    caseWeaknessesEditorBody.removeAttr("contenteditable").find("a").on("click.readonly", false);
+
+                    var caseFootnotesEditor = $('#caseFootnotesEditor').data("kendoEditor");
+                    caseFootnotesEditor.value(caseOverView[0].Published_Case_Footnotes);
+                    caseFootnotesEditorBody = $(caseFootnotesEditor.body);
+                    caseFootnotesEditorBody.removeAttr("contenteditable").find("a").on("click.readonly", false);
+
+                    var internalNotesEditor = $('#internalNotesEditor').data("kendoEditor");
+                    internalNotesEditor.value(caseOverView[0].Published_Case_Internal_Notes);
+                    internalNotesEditorBody = $(internalNotesEditor.body);
+                    internalNotesEditorBody.removeAttr("contenteditable").find("a").on("click.readonly", false);
+
+                    var lastUpdatedValue = $('#lastUpdatedValue');
+                    var isPublished = caseOverView[0].IsPublished;
+                    var Draft_LastUpdate_Date = caseOverView[0].Draft_LastUpdate_Date;
+                    var Published_LastUpdate_Date = caseOverView[0].Published_LastUpdate_Date;
+
+                    if (isPublished == true) {
+                        $('#pubishedButton').css("display", "block");
+                        $('#draftButton').css("display", "none");
+
+                        $('#lastUpdatedTitle').css("display", "block");
+                        if (Published_LastUpdate_Date == "1/1/1900 12:00 AM") {
+                            lastUpdatedValue.text("");
+                        } else {
+                            lastUpdatedValue.text(Published_LastUpdate_Date);
+                        }
+
+                    } else {
+                        if (Draft_LastUpdate_Date == "1/1/1900 12:00 AM") {
+                            lastUpdatedValue.text("");
+                        }
+                        else {
+                            $('#pubishedButton').css("display", "none");
+                            $('#draftButton').css("display", "block");
+                            $('#lastUpdatedTitle').css("display", "block");
+                            lastUpdatedValue.text(Draft_LastUpdate_Date);
+                        }
+                    }
+                }
+
+                function scrollToContent(id) {
+                    const element = document.getElementById(id);
+                    //element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    window.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }
+            </script>
+
+
+
+            <link href="/css/CaseDetail/caseOverview.css" rel="stylesheet" />
+
+
+            <div id="caseOverviewEditModeContainer" style="display:none;">
+                <div class="container-fluid" id="caseOverViewEditContent">
+                    <div class="row">
+                        <div class="col-md-10 editorsContainer">
+                            <div class="row editorSectionStyle" id="ktmcCaseOverviewEdit">
+                                <div class="overviewTitles">KTMC Case Overview</div>
+                                <div class="demo-section wide editorStyle">
+                                    <textarea id="ktmcCaseOverviewEditorEdit" rows="10" cols="30"
+                                        style="width:100%; height:450px;position:static" aria-label="editor">
+                            </textarea>
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="caseStrengthsEdit">
+                                <div class="overviewTitles">Case Strengths</div>
+                                <div class="demo-section wide editorStyle">
+                                    <textarea id="caseStrengthsEditorEdit" rows="10" cols="30"
+                                        style="width: 100%; height: 150px; position: static" aria-label="editor">
+                            </textarea>
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="caseWeaknessesEdit">
+                                <div class="overviewTitles">Case Weaknesses</div>
+                                <div class="demo-section wide editorStyle">
+                                    <textarea id="caseWeaknessesEditorEdit" rows="10" cols="30"
+                                        style="width: 100%; height: 150px; position: static" aria-label="editor">
+                            </textarea>
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="caseFootnotesEdit">
+                                <div class="overviewTitles">Footnotes</div>
+                                <div class="demo-section wide editorStyle">
+                                    <textarea id="caseFootnotesEditorEdit" rows="10" cols="30"
+                                        style="width: 100%; height: 150px; position: static" aria-label="editor">
+                            </textarea>
+                                </div>
+                            </div>
+                            <div class="row editorSectionStyle" id="internalNotesEdit">
+                                <div class="overviewTitles">Internal Notes</div>
+                                <div class="demo-section wide editorStyle">
+                                    <textarea id="internalNotesEditorEdit" rows="10" cols="30"
+                                        style="width: 100%; height: 150px; position: static" aria-label="editor">
+                            </textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="row">
+                                <div class="jumpToContainer" id="jumpToSectionEdit">
+                                    <div class="jumpToTitle">Jump to</div>
+                                    <div class="jumpToLinks" id="caseOverviewEditLink" style="cursor: pointer;">
+                                        KTMC Case Overview</div>
+                                    <div class="jumpToLinks" id="caseStrengthEditLink" style="cursor: pointer;">
+                                        Case Strengths</div>
+                                    <div class="jumpToLinks" id="caseWeaknessesEditLink" style="cursor: pointer;">Case
+                                        Weaknesses</div>
+                                    <div class="jumpToLinks" id="caseFootnotesEditLink" style="cursor: pointer;">
+                                        Footnotes</div>
+                                    <div class="jumpToLinks" id="internalNotesEditLink" style="cursor: pointer;">
+                                        Internal Notes</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="pubishedButtonEdit" style="display:none;">Published</div>
+                                    <div id="draftButtonEdit" style="display:none;">Draft</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="lastUpdatedTitleEdit" style="display:none;">Last Updated</div>
+                                    <div id="lastUpdatedValueEdit" style="display:block;"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modalOverlayCaseOverviewEdit" class="modal-overlayEditPopUp"></div>
+
+            <div id="saveAlertModalCaseOverview" class="customModal" style="width:336px; height: 298px; display: none">
+                <span id="spnModalClose" class="modalClose">X</span>
+                <div class="modal-header">
+                    <span class="blueCircle" style="margin: 0 auto; align-items: center; display: table;">
+                        <span class="k-icon k-i-warning"
+                            style="color: white; font-size: 30.85px;  height:56px; width:56px;"></span>
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <div class="proximaFont" style="text-align:center;"> <strong>Update Case Overview</strong>
+                    </div>
+                    <div class="proximaFont" style="text-align:center;">Checking "Publish" will update</div>
+                    <div class="proximaFont" style="text-align:center;">the Case Overview to the end user</div>
+                    <br />
+                    <div style="margin: 0 auto 10px auto; align-items: center; display: table;">
+                        <button id="PublishButton" class="blue-button buttonSM proximaFont"
+                            style="margin-right: 17px !important;"><span
+                                style="margin: 0 30px 0 30px">Publish</span></button>
+                        <button id="DraftButton" class="blue-button buttonSM proximaFont"><span
+                                style="margin: 0 20px 0 20px">Save Draft</span></button>
+                    </div>
+                    <div style="margin: 0 auto; align-items: center; display: table;"><button
+                            id="cancelButtonCaseOverview" class="white-button buttonSM"><span class="proximaFont"
+                                style="margin: 0 20px 0 20px">Cancel</span></button></div>
+
+                </div>
+            </div>
+
+            <div id="closeAlertModalCaseOverview" class="customModal" style="width:336px; height: 298px; display: none">
+                <div class="modal-header">
+                    <span class="blueCircle" style="margin: 0 auto; align-items: center; display: table;">
+                        <span class="k-icon k-i-warning"
+                            style="color: white; font-size: 30.85px;  height:56px; width:56px;"></span>
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <div class="proximaFont" style="text-align:center;"> <strong>Are you sure you want to
+                            close</strong></div>
+                    <div class="proximaFont" style="text-align:center;"> <strong>without saving?</strong></div>
+                    <br />
+                    <div class="proximaFont" style="margin: 0 auto 10px auto; align-items: center; display: table;">
+                        <button id="goBackAndSaveButton" class="blue-button buttonSM"><span
+                                style="margin: 0 20px 0 20px">Go back and Save</span></button>
+                    </div>
+                    <div class="proximaFont" style="margin: 0 auto 10px auto; align-items: center; display: table;">
+                        <button id="dontSaveAndCloseButton" class="white-button buttonSM"><span
+                                style="margin: 0 20px 0 20px">Don't save and Close</span></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                $(document).ready(function () {
+
+                    function onChange(e) {
+                        if (e.name == 'autolink') {
+                            e.preventDefault();
+                        }
+                    }
+
+
+                    function OnPaste(e) {
+                        if ((/^<img src="/).test(e.html)) {
+                            toastr.error('Images are not allowed in this field', '', {
+                                "positionClass": "toast-top-center",
+                                "timeOut": "5000",
+                            });
+                            e.html = "";
+                        }
+
+                        if ((/^<table/).test(e.html)) {
+                            toastr.error('Tables are not allowed in this field', '', {
+                                "positionClass": "toast-top-center",
+                                "timeOut": "5000",
+                            });
+                            e.html = "";
+                        }
+
+                        if ((/^<a href="/).test(e.html)) {
+                            toastr.error('Links are not allowed in this field', '', {
+                                "positionClass": "toast-top-center",
+                                "timeOut": "5000",
+                            });
+                            e.html = "";
+                        }
+                    }
+
+                    let toolsEditor = [
+                        "bold", "italic", "underline", "strikethrough", "undo", "redo",
+                        "justifyLeft", "justifyCenter", "justifyRight", "justifyFull",
+                        "insertUnorderedList", "insertOrderedList", "indent", "outdent",
+                        "subscript", "superscript",
+                        "cleanFormatting", "copyFormat", "applyFormat"
+                    ];
+
+                    $("#ktmcCaseOverviewEditorEdit").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: true
+                        },
+                        tools: toolsEditor,
+                        paste: OnPaste,
+                        execute: onChange,
+                        pasteCleanup: {
+                            css: true,
+                            custom: function (html) {
+                                customHtml = html.replace(/<\/?a[^>]*>/, "").replace(/<\/?table[^>]*>/, "").replace(/<\/?img[^>]*>/, "").replace(/^<img src="/, "");
+                                return customHtml;
+                            }
+                        },
+                        keyup: function (e) {
+                            editorResizableAsPerContent(this.body, $('#ktmcCaseOverviewEdit').find('.k-editor'))
+                        }
+                    });
+
+
+                    $("#caseStrengthsEditorEdit").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: true
+                        },
+                        tools: toolsEditor,
+                        paste: OnPaste,
+                        execute: onChange,
+                        pasteCleanup: {
+                            css: true,
+                            custom: function (html) {
+                                customHtml = html.replace(/<\/?a[^>]*>/, "").replace(/<\/?table[^>]*>/, "").replace(/<\/?img[^>]*>/, "").replace(/^<img src="/, "");
+                                return customHtml;
+                            }
+                        },
+                        keyup: function (e) {
+                            editorResizableAsPerContent(this.body, $('#caseStrengthsEdit').find('.k-editor'))
+                        }
+                    });
+
+                    $("#caseWeaknessesEditorEdit").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: true
+                        },
+                        tools: toolsEditor,
+                        paste: OnPaste,
+                        execute: onChange,
+                        pasteCleanup: {
+                            css: true,
+                            custom: function (html) {
+                                customHtml = html.replace(/<\/?a[^>]*>/, "").replace(/<\/?table[^>]*>/, "").replace(/<\/?img[^>]*>/, "").replace(/^<img src="/, "");
+                                return customHtml;
+                            }
+                        },
+                        keyup: function (e) {
+                            editorResizableAsPerContent(this.body, $('#caseWeaknessesEdit').find('.k-editor'))
+                        }
+                    });
+
+                    $("#caseFootnotesEditorEdit").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: true
+                        },
+                        tools: toolsEditor,
+                        paste: OnPaste,
+                        execute: onChange,
+                        pasteCleanup: {
+                            css: true,
+                            custom: function (html) {
+                                customHtml = html.replace(/<\/?a[^>]*>/, "").replace(/<\/?table[^>]*>/, "").replace(/<\/?img[^>]*>/, "").replace(/^<img src="/, "");
+                                return customHtml;
+                            }
+                        },
+                        keyup: function (e) {
+                            editorResizableAsPerContent(this.body, $('#caseFootnotesEdit').find('.k-editor'))
+                        }
+                    });
+
+                    $("#internalNotesEditorEdit").kendoEditor({
+                        resizable: {
+                            content: true,
+                            toolbar: true
+                        },
+                        tools: toolsEditor,
+                        paste: OnPaste,
+                        execute: onChange,
+                        pasteCleanup: {
+                            css: true,
+                            custom: function (html) {
+                                customHtml = html.replace(/<\/?a[^>]*>/, "").replace(/<\/?table[^>]*>/, "").replace(/<\/?img[^>]*>/, "").replace(/^<img src="/, "");
+                                return customHtml;
+                            }
+                        },
+                        keyup: function (e) {
+                            editorResizableAsPerContent(this.body, $('#internalNotesEdit').find('.k-editor'))
+                        }
+                    });
+
+                    function setDefaultStyleEditor() {
+                        var ktmcCaseOverviewEditorEdit = $($("#ktmcCaseOverviewEditorEdit").getKendoEditor().body);
+                        ktmcCaseOverviewEditorEdit.css("font-family", "Proxima Nova");
+                        ktmcCaseOverviewEditorEdit.css("font-size", "18px");
+                        ktmcCaseOverviewEditorEdit.css("overflow", "hidden");
+
+
+                        var caseStrengthsEditorEdit = $($("#caseStrengthsEditorEdit").getKendoEditor().body);
+                        caseStrengthsEditorEdit.css("font-family", "Proxima Nova");
+                        caseStrengthsEditorEdit.css("font-size", "18px");
+                        caseStrengthsEditorEdit.css("overflow", "hidden");
+
+                        var caseWeaknessesEditorEdit = $($("#caseWeaknessesEditorEdit").getKendoEditor().body);
+                        caseWeaknessesEditorEdit.css("font-family", "Proxima Nova");
+                        caseWeaknessesEditorEdit.css("font-size", "18px");
+                        caseWeaknessesEditorEdit.css("overflow", "hidden");
+
+                        var caseFootnotesEditorEdit = $($("#caseFootnotesEditorEdit").getKendoEditor().body);
+                        caseFootnotesEditorEdit.css("font-family", "Proxima Nova");
+                        caseFootnotesEditorEdit.css("font-size", "18px");
+                        caseFootnotesEditorEdit.css("overflow", "hidden");
+
+                        var internalNotesEditorEdit = $($("#internalNotesEditorEdit").getKendoEditor().body);
+                        internalNotesEditorEdit.css("font-family", "Proxima Nova");
+                        internalNotesEditorEdit.css("font-size", "18px");
+                        internalNotesEditorEdit.css("overflow", "hidden");
+
+                        var ktmcCaseOverviewEditor = $($("#ktmcCaseOverviewEditor").getKendoEditor().body);
+                        ktmcCaseOverviewEditor.css("font-family", "Proxima Nova");
+                        ktmcCaseOverviewEditor.css("font-size", "18px");
+
+                        var caseStrengthsEditor = $($("#caseStrengthsEditor").getKendoEditor().body);
+                        caseStrengthsEditor.css("font-family", "Proxima Nova");
+                        caseStrengthsEditor.css("font-size", "18px");
+
+                        var caseWeaknessesEditor = $($("#caseWeaknessesEditor").getKendoEditor().body);
+                        caseWeaknessesEditor.css("font-family", "Proxima Nova");
+                        caseWeaknessesEditor.css("font-size", "18px");
+
+                        var caseFootnotesEditor = $($("#caseFootnotesEditor").getKendoEditor().body);
+                        caseFootnotesEditor.css("font-family", "Proxima Nova");
+                        caseFootnotesEditor.css("font-size", "18px");
+
+                        var internalNotesEditor = $($("#internalNotesEditor").getKendoEditor().body);
+                        internalNotesEditor.css("font-family", "Proxima Nova");
+                        internalNotesEditor.css("font-size", "18px");
+                    }
+                    setDefaultStyleEditor();
+                    $('#closeAlertModalCaseOverview').hide();
+                });
+
+            </script>
+
+            <script>
+
+                document.querySelector('#caseOverviewEditLink').addEventListener('click', function () {
+                    document.querySelector('#ktmcCaseOverviewEdit').scrollIntoView(true);
+                });
+
+                document.querySelector('#caseStrengthEditLink').addEventListener('click', function () {
+                    document.querySelector('#caseStrengthsEdit').scrollIntoView(true);
+                });
+
+                document.querySelector('#caseWeaknessesEditLink').addEventListener('click', function () {
+                    document.querySelector('#caseWeaknessesEdit').scrollIntoView(true);
+                });
+
+                document.querySelector('#caseFootnotesEditLink').addEventListener('click', function () {
+                    document.querySelector('#caseFootnotesEdit').scrollIntoView(true);
+                });
+
+                document.querySelector('#internalNotesEditLink').addEventListener('click', function () {
+                    document.querySelector('#internalNotesEdit').scrollIntoView(true);
+                });
+
+                let caseOverViewEdit = [];
+
+                async function getCaseOveriewEdit(caseSk) {
+
+                    Promise.resolve($.get("/getcaseoverviewbycaseid/" + caseSk), (result) => {
+                        return result;
+                    }).then((result) => {
+                        caseOverViewEdit = [];
+                        caseOverViewEdit.push(...result);
+                        setCaseOverviewEditValues();
+                    });
+                }
+
+                function setCaseOverviewEditValues() {
+                    var ktmcCaseOverviewEditorEdit = $('#ktmcCaseOverviewEditorEdit').data("kendoEditor");
+                    ktmcCaseOverviewEditorEdit.value(caseOverViewEdit[0].Draft_Case_Overview);
+
+                    var caseStrengthsEditorEdit = $('#caseStrengthsEditorEdit').data("kendoEditor");
+                    caseStrengthsEditorEdit.value(caseOverViewEdit[0].Draft_Case_Strengths);
+
+                    var caseWeaknessesEditorEdit = $('#caseWeaknessesEditorEdit').data("kendoEditor");
+                    caseWeaknessesEditorEdit.value(caseOverViewEdit[0].Draft_Case_Weaknesses);
+
+                    var caseFootnotesEditorEdit = $('#caseFootnotesEditorEdit').data("kendoEditor");
+                    caseFootnotesEditorEdit.value(caseOverViewEdit[0].Draft_Case_Footnotes);
+
+                    var internalNotesEditorEdit = $('#internalNotesEditorEdit').data("kendoEditor");
+                    internalNotesEditorEdit.value(caseOverViewEdit[0].Draft_Case_Internal_Notes);
+
+                    var lastUpdatedValueEdit = $('#lastUpdatedValueEdit');
+                    if (caseOverViewEdit[0].Draft_LastUpdate_Date == "1/1/1900 12:00 AM") {
+                        lastUpdatedValueEdit.text("");
+                    } else {
+                        lastUpdatedValueEdit.text(caseOverViewEdit[0].Draft_LastUpdate_Date);
+                    }
+
+                    var isPublished = caseOverViewEdit[0].IsPublished;
+                    if (isPublished == true) {
+                        $('#pubishedButtonEdit').css("display", "block");
+                        $('#lastUpdatedTitleEdit').css("display", "block");
+                        $('#draftButtonEdit').css("display", "none");
+                    } else {
+                        $('#pubishedButtonEdit').css("display", "none");
+                        $('#draftButtonEdit').css("display", "block");
+                        $('#lastUpdatedTitleEdit').css("display", "block");
+                    }
+
+                    editorResizableAsPerContent($("#ktmcCaseOverviewEditorEdit").getKendoEditor().body, $('#ktmcCaseOverviewEdit').find('.k-editor'));
+                    editorResizableAsPerContent($("#caseStrengthsEditorEdit").getKendoEditor().body, $('#caseStrengthsEdit').find('.k-editor'));
+                    editorResizableAsPerContent($("#caseWeaknessesEditorEdit").getKendoEditor().body, $('#caseWeaknessesEdit').find('.k-editor'));
+                    editorResizableAsPerContent($("#caseFootnotesEditorEdit").getKendoEditor().body, $('#caseFootnotesEdit').find('.k-editor'));
+                    editorResizableAsPerContent($("#internalNotesEditorEdit").getKendoEditor().body, $('#internalNotesEdit').find('.k-editor'));
+                }
+
+                const editorResizableAsPerContent = (source, target) => {
+                    target.height(source.scrollHeight + 300)
+                }
+
+                function scrollToContent(id) {
+                    const element = document.getElementById(id);
+                    element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+                }
+
+                $('#saveCaseOverview').click(function () {
+                    $('#modalOverlayCaseOverviewEdit').show();
+                    $('#saveAlertModalCaseOverview').css("display", "block");
+                    //Enable all Tabs in Edit Mode
+                    $("#caseDetailsTab,#classDamageTab, #procedingsTab, #filingFirmsTab, #counselInfoTab, #settlementInfoTab, #caseOverviewTab").css("pointer-events", "auto");
+                });
+
+                $(document).on("click", '#spnModalClose', function () {
+                    $('#saveAlertModalCaseOverview').hide();
+                    $('#closeAlertModalCaseOverview').show();
+
+                });
+
+                $('#cancelButtonCaseOverview').click(function () {
+                    $('#modalOverlayCaseOverviewEdit').hide();
+                    $('#saveAlertModalCaseOverview').css("display", "none");
+                });
+
+                function getLengthEditorWithHTML(editorId) {
+                    return $(editorId).data("kendoEditor").value().length;
+                }
+
+                $('#goBackAndSaveButton').click(function () {
+                    $('#closeAlertModalCaseOverview').hide();
+                    $('#saveAlertModalCaseOverview').show();
+                });
+
+                $('#dontSaveAndCloseButton').click(function () {
+                    $('#closeAlertModalCaseOverview').hide();
+                    $('#modalOverlayCaseOverviewEdit').hide();
+                    $('#saveAlertModalCaseOverview').css("display", "none");
+                    $('#caseOverviewEditModeContainer').hide();
+                    $('#saveCaseOverview').hide();
+                    $('#EditContainer').removeClass('EditContainer');
+                    $('#enableCaseEdit').show();
+                    $('#caseOverviewViewModeContainer').show();
+                    isOnEditMode = false;
+
+                });
+
+
+                $('#PublishButton').click(function () {
+                    $('#modalOverlayCaseOverviewEdit').hide();
+                    $('#saveAlertModalCaseOverview').css("display", "none");
+                    var isValid = true;
+                    let validationMessages = [];
+
+
+                    var limitAllowedCharacters = 20000;
+                    if (getLengthEditorWithHTML("#ktmcCaseOverviewEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`KTMC Case Overview section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+                    if (getLengthEditorWithHTML("#caseStrengthsEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Case Strengths section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+
+                    if (getLengthEditorWithHTML("#caseWeaknessesEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Case Weaknesses section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+                    if (getLengthEditorWithHTML("#caseFootnotesEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Footnotes section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+
+                    if (getLengthEditorWithHTML("#internalNotesEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Internal Notes section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+
+                    if (isValid) {
+                        var caseOverviewToEdit = {
+                            CaseSk: $('#CaseSK').val(),
+                            User: $("#User").val(),
+                            Published_Case_Overview: $("#ktmcCaseOverviewEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Strengths: $("#caseStrengthsEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Weaknesses: $("#caseWeaknessesEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Footnotes: $("#caseFootnotesEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Internal_Notes: $("#internalNotesEditorEdit").data("kendoEditor").value(),
+                            IsPublished: 1
+                        };
+
+                        $.ajax({
+                            url: "/CaseDetail/UpdateCaseOverview",
+                            type: "POST",
+                            data:
+                                JSON.stringify(caseOverviewToEdit),
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            error: function (response) {
+                                alert(response.responseText);
+                            },
+                            success: function (response) {
+                                if (response.ValidationErrorMessage) {
+                                    toastr.error(response.ValidationErrorMessage, '', {
+                                        "positionClass": "toast-top-center",
+                                        "timeOut": "5000",
+                                    });
+                                }
+                                else {
+                                    $('#pubishedButtonEdit').css("display", "block");
+                                    $('#lastUpdatedTitleEdit').css("display", "block");
+                                    $('#draftButtonEdit').css("display", "none");
+
+                                    $('#caseOverviewEditModeContainer').hide();
+                                    $('#saveCaseOverview').hide();
+                                    $('#EditContainer').removeClass('EditContainer');
+                                    $('#caseOverviewViewModeContainer').show();
+                                    $('#enableCaseEdit').show();
+                                    isOnEditMode = false;
+
+                                    var ktmcCaseOverviewEditor = $('#ktmcCaseOverviewEditor').data("kendoEditor");
+                                    ktmcCaseOverviewEditor.value(caseOverviewToEdit.Published_Case_Overview);
+
+                                    var caseStrengthsEditor = $('#caseStrengthsEditor').data("kendoEditor");
+                                    caseStrengthsEditor.value(caseOverviewToEdit.Published_Case_Strengths);
+
+                                    var caseWeaknessesEditor = $('#caseWeaknessesEditor').data("kendoEditor");
+                                    caseWeaknessesEditor.value(caseOverviewToEdit.Published_Case_Weaknesses);
+
+                                    var caseFootnotesEditor = $('#caseFootnotesEditor').data("kendoEditor");
+                                    caseFootnotesEditor.value(caseOverviewToEdit.Published_Case_Footnotes);
+
+                                    var internalNotesEditor = $('#internalNotesEditor').data("kendoEditor");
+                                    internalNotesEditor.value(caseOverviewToEdit.Published_Case_Internal_Notes);
+
+                                    var lastUpdatedValue = $('#lastUpdatedValue');
+
+                                    if (response.Published_LastUpdate_Date == "1/1/1900 12:00 AM") {
+                                        lastUpdatedValue.text("");
+                                    } else {
+                                        lastUpdatedValue.text(response.Published_LastUpdate_Date);
+                                    }
+
+                                    getCaseOveriew(caseOverviewToEdit.CaseSk);
+                                }
+                            }
+                        });
+
+                    }
+                    else {
+                        validationMessages.forEach(item => {
+                            toastr.error(item, '', {
+                                "positionClass": "toast-top-center",
+                                "timeOut": "5000",
+                            });
+                        })
+                    }
+                });
+
+                $('#DraftButton').click(function () {
+                    $('#modalOverlayCaseOverviewEdit').hide();
+                    $('#saveAlertModalCaseOverview').css("display", "none");
+                    var isValid = true;
+                    let validationMessages = [];
+                    var limitAllowedCharacters = 20000;
+
+                    if (getLengthEditorWithHTML("#ktmcCaseOverviewEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`KTMC Case Overview section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+                    if (getLengthEditorWithHTML("#caseStrengthsEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Case Strengths section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+
+                    if (getLengthEditorWithHTML("#caseWeaknessesEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Case Weaknesses section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+                    if (getLengthEditorWithHTML("#caseFootnotesEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Footnotes section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+
+                    if (getLengthEditorWithHTML("#internalNotesEditorEdit") > limitAllowedCharacters) {
+                        validationMessages.push(`Internal Notes section exceeds the character limit allowed`);
+                        isValid = false;
+                    }
+
+                    if (isValid) {
+
+                        var caseOverviewToEdit = {
+                            CaseSk: $('#CaseSK').val(),
+                            User: $("#User").val(),
+                            Published_Case_Overview: $("#ktmcCaseOverviewEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Strengths: $("#caseStrengthsEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Weaknesses: $("#caseWeaknessesEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Footnotes: $("#caseFootnotesEditorEdit").data("kendoEditor").value(),
+                            Published_Case_Internal_Notes: $("#internalNotesEditorEdit").data("kendoEditor").value(),
+                            IsPublished: 0
+                        };
+
+                        $.ajax({
+                            url: "/CaseDetail/UpdateCaseOverview",
+                            type: "POST",
+                            data:
+                                JSON.stringify(caseOverviewToEdit),
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            error: function (response) {
+                                alert(response.responseText);
+                            },
+                            success: function (response) {
+                                if (response.ValidationErrorMessage) {
+                                    toastr.error(response.ValidationErrorMessage, '', {
+                                        "positionClass": "toast-top-center",
+                                        "timeOut": "5000",
+                                    });
+                                }
+                                else {
+
+                                    var lastUpdatedValueEdit = $('#lastUpdatedValueEdit');
+                                    lastUpdatedValueEdit.text(response.Draft_LastUpdate_Date);
+                                    $('#pubishedButtonEdit').css("display", "none");
+                                    $('#draftButtonEdit').css("display", "block");
+                                    $('#lastUpdatedTitleEdit').css("display", "block");
+                                    $('#lastUpdatedValueEdit').css("display", "block");
+
+                                    $('#caseOverviewEditModeContainer').hide();
+                                    $('#saveCaseOverview').hide();
+                                    $('#EditContainer').removeClass('EditContainer');
+                                    $('#caseOverviewViewModeContainer').show();
+                                    $('#enableCaseEdit').show();
+                                    isOnEditMode = false;
+                                    getCaseOveriew(caseOverviewToEdit.CaseSk);
+                                }
+                            }
+                        });
+
+                    }
+                    else {
+                        validationMessages.forEach(item => {
+                            toastr.error(item, '', {
+                                "positionClass": "toast-top-center",
+                                "timeOut": "5000",
+                            });
+                        })
+                    }
+                });
+
+            </script>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
